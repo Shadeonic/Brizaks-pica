@@ -9,6 +9,17 @@ Pica(double lielums, String piedevas, String merces){
 	this.merces = merces;
 }
 // Getteri
+public double getLielums() {
+	return lielums;
+}
+
+public String getPiedevas() {
+	return piedevas;
+}
+
+public String getMerces() {
+	return merces;
+}
 // Setteri
 // Metodes
 }
