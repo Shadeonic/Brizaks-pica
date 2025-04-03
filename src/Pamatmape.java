@@ -73,7 +73,8 @@ public class Pamatmape {
 				if(!parole.equals(apstParoli)) 
 					JOptionPane.showMessageDialog(null, "Paroles nesakrīt!", "Kļūda", JOptionPane.ERROR_MESSAGE);	
 			}while(!parole.equals(apstParoli));
-			klienti.add(new Persona(adrese, vards, uzvards, parole, telNr));
+			klienti.add(new Persona(adrese, vards, uzvards, parole, telNr));//Ideja pievienot šo info kādā teksta dokumentā un pēc programmas izslēgšanas info saglabājas
+			Metodes.saglabatFaila(adrese, vards, uzvards, parole, telNr);
 			break;
 		case 1:
 			String[] registr_izvele = {"Atgriezties un izveidot savu profilu", "Pieslēgties kā viesis"};
