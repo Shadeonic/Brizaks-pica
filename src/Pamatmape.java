@@ -70,9 +70,9 @@ public class Pamatmape {
 			do {
 				parole = JOptionPane.showInputDialog("Ievadi savu paroli: ");
 				apstParoli = JOptionPane.showInputDialog("Apstiprini savu paroli: ");
-				if(parole != apstParoli) 
+				if(!parole.equals(apstParoli)) 
 					JOptionPane.showMessageDialog(null, "Paroles nesakrīt!", "Kļūda", JOptionPane.ERROR_MESSAGE);	
-			}while(apstParoli!=parole);
+			}while(!parole.equals(apstParoli));
 			klienti.add(new Persona(adrese, vards, uzvards, parole, telNr));
 			break;
 		case 1:
@@ -88,7 +88,7 @@ public class Pamatmape {
 			}else {
 				int kursPok = pokIzvele(klienti);
 				parole = JOptionPane.showInputDialog("Ievadi savu paroli: ");
-				if(((Persona)klienti.get(kursPok)).getParole()!=parole) {
+				if(!((Persona)klienti.get(kursPok)).getParole().equals(parole)) {
 					JOptionPane.showMessageDialog(null, "Paroles nesakrīt!", "Kļūda", JOptionPane.ERROR_MESSAGE);
 					break;
 				}else 
