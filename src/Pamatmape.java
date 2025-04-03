@@ -10,9 +10,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
-
-import Brizaks_Cabele.ElektriskaisP;
 public class Pamatmape {
+	static int pokIzvele(ArrayList <Object> klienti) {
+		String[] rSaraksts = new String[klienti.size()];
+		for(int i=0; i<rSaraksts.length; i++) {
+			rSaraksts[i] =((Persona)klienti.get(i)).getVards()+" "+((Persona)klienti.get(i)).getUzvards();
+		}
+		String izveletais = (String)JOptionPane.showInputDialog(null, "Izvēlies profilu", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, rSaraksts, rSaraksts[0]);
+		return Arrays.asList(rSaraksts).indexOf(izveletais);
+	}
 	public static void main(String[] args) {
 		String[] darbibas = {"Izveidot profilu", "Pieslēgties","Aizvērt programmu"};
 		String[] darbibas2 = {"Pasūtīt picu", "Saņemt picu", "Apskatīties visus pasūtījums", "Rediģēt/Dzēst profilu", "Izlogoties"};
@@ -70,6 +76,24 @@ public class Pamatmape {
 			klienti.add(new Persona(adrese, vards, uzvards, parole, telNr));
 			break;
 		case 1:
+			String[] registr_izvele = {"Atgriezties un izveidot savu profilu", "Pieslēgties kā viesis"};
+			if(klienti.size()==0) {
+				izvele =(String) JOptionPane.showInputDialog(null, "Tu vēl neizveidoju profilu vai tas netika saglabāts", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, registr_izvele, registr_izvele[0]);
+				izvelesIndekss = Arrays.asList(darbibas).indexOf(izvele);
+				if(izvelesIndekss==0)
+					break;
+				else {
+					Metodes.pasutitPicu(-1);
+				}
+			}else {
+				int kursPok = pokIzvele(klienti);
+				parole = JOptionPane.showInputDialog("Ievadi savu paroli: ");
+				if(((Persona)klienti.get(kursPok)).getParole()!=parole) {
+					JOptionPane.showMessageDialog(null, "Paroles nesakrīt!", "Kļūda", JOptionPane.ERROR_MESSAGE);
+					break;
+				}else 
+					Metodes.pasutitPicu(kursPok);
+			}
 			break;
 		case 2:
 			JOptionPane.showMessageDialog(null, "Programma apturēta", "Informācija", JOptionPane.INFORMATION_MESSAGE);

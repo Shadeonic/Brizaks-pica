@@ -23,9 +23,14 @@ public String getUzvards() {
 	return uzvards;
 }
 
+public String getParole() {
+	return parole;
+}
+
 public int getTalrunis() {
 	return talrunis;
 }
+
 //Setteri
 //Metodes
 }
