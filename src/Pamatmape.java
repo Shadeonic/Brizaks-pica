@@ -11,7 +11,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 public class Pamatmape {
-	static int pokIzvele(ArrayList <Object> klienti) {
+	static int klientaIzvele(ArrayList <Object> klienti) {
 		String[] rSaraksts = new String[klienti.size()];
 		for(int i=0; i<rSaraksts.length; i++) {
 			rSaraksts[i] =((Persona)klienti.get(i)).getVards()+" "+((Persona)klienti.get(i)).getUzvards();
@@ -32,6 +32,7 @@ public class Pamatmape {
 		ArrayList <Object> klienti = new ArrayList <Object>();
 		String izvele;
 		int izvelesIndekss;
+		Metodes.nolasitFailu(klienti);
 		do {
 		izvele =(String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, darbibas, darbibas[0]);
 		izvelesIndekss = Arrays.asList(darbibas).indexOf(izvele);
@@ -47,15 +48,15 @@ public class Pamatmape {
 			do {
 				uzvards = JOptionPane.showInputDialog("Ievadi savu uzvārdu: ");
 				if (uzvards == null) break;
-			}while(!vards.matches("^[-\\p{L}]+$") || vards.length()<3);
+			}while(!uzvards.matches("^[-\\p{L}]+$") || vards.length()<3);
 			if(uzvards == null)
 				break;
 			
 			do {
 				adrese = JOptionPane.showInputDialog("Ievadi savu adresi: ");
-				if (uzvards == null) break;
-			}while(!vards.matches("^[-\\p{L}]+$") || vards.length()<3);
-			if(uzvards == null)
+				if (adrese == null) break;
+			}while(!adrese.matches("^[-\\p{L}]+$") || vards.length()<3);
+			if(adrese == null)
 				break;
 			int telNr=0;
 			do {
@@ -87,7 +88,7 @@ public class Pamatmape {
 					Metodes.pasutitPicu(-1);
 				}
 			}else {
-				int kursPok = pokIzvele(klienti);
+				int kursPok = klientaIzvele(klienti);
 				parole = JOptionPane.showInputDialog("Ievadi savu paroli: ");
 				if(!((Persona)klienti.get(kursPok)).getParole().equals(parole)) {
 					JOptionPane.showMessageDialog(null, "Paroles nesakrīt!", "Kļūda", JOptionPane.ERROR_MESSAGE);
@@ -101,6 +102,5 @@ public class Pamatmape {
 			break;
 		}
 	}while(izvelesIndekss != 2);
-		
 	}
 }
