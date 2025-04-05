@@ -1,4 +1,7 @@
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -11,12 +14,35 @@ import java.util.Arrays;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 public class Metodes {
-static void pasutitPicu(int klients) {//Ja -1, tad kā viesis
+static ArrayList<Object> pasutitPicu(int klients, ArrayList<Object> picas) {
 	
+	return picas;
+}
+
+static void raditSarakstu(ArrayList<Object> picas) {
+    String str = "Pieejamās picas: " + picas.size() +
+            "\n________________________\n";
+    for (int i = 0; i < picas.size(); i++) {
+        str += ((Pica) picas.get(i)).izvadit() +
+                "\n________________________\n";
+    }
+    JTextArea ta = new JTextArea(str, 10, 35);
+    ta.setEditable(false);
+    JScrollPane sp = new JScrollPane(ta);
+    sp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+    JPanel panel = new JPanel();
+    panel.setLayout(new BorderLayout());
+    panel.add(sp, BorderLayout.CENTER);
+    JOptionPane.showMessageDialog(null, panel, "Picu saraksts", JOptionPane.PLAIN_MESSAGE);
 }
 
 static void saglabatFaila(String adrese, String vards, String uzvards, String parole, int telNr) {
@@ -63,7 +89,7 @@ static String izvParoli() {
 	char[] Cparole="T".toCharArray(), ApstParole;
 	int x = JOptionPane.CANCEL_OPTION;
 	do {
-		ImageIcon logo = new ImageIcon(Pamatmape.class.getResource("/user.jpg")); 
+		ImageIcon logo = new ImageIcon(Pamatmape.class.getResource("/user.png")); 
         Image logoImage = logo.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Pielāgo attēlu
         ImageIcon pielagotsLogo = new ImageIcon(logoImage);
      
@@ -132,7 +158,7 @@ static boolean ievadParoli(int klients, ArrayList<Object> klienti) {
 	do {
 	String Saglab_parole = ((Persona)klienti.get(klients)).getParole();
 	
-	ImageIcon logo = new ImageIcon(Pamatmape.class.getResource("/user.jpg")); 
+	ImageIcon logo = new ImageIcon(Pamatmape.class.getResource("/user.png")); 
     Image logoImage = logo.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Pielāgo attēlu
     ImageIcon pielagotsLogo = new ImageIcon(logoImage);
  
@@ -172,5 +198,56 @@ static boolean ievadParoli(int klients, ArrayList<Object> klienti) {
     	break;
 	}while(true);
 	return false;
+}
+
+static void sanemtPicu(int klients, ArrayList<Object> klienti, ArrayList<Object> pica) {
+	String[] sanemtPicu = {"Uz vietas", "Piegāde uz mājām"};
+	String izvele;
+	if(pica.size()>0) {
+		int kuraPica = picasIzvele(pica);
+		izvele = (String)JOptionPane.showInputDialog(null, "Kā vēlies saņemt picu?", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, sanemtPicu, sanemtPicu[0]);
+		if(izvele=="Uz vietas") {
+			int x = JOptionPane.showConfirmDialog(null, "Par picu būs jāsamaksā "+((Pica)pica.get(kuraPica)).getCena()+"EUR.\nApmaksāt?","Samaksa", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+			if (x == JOptionPane.OK_OPTION) 
+				JOptionPane.showMessageDialog(null, "Pica veiksmīgi piegādāta pie tava galdiņa!", "Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+			 else
+				 policija();
+		} else {
+			int x = JOptionPane.showConfirmDialog(null, "Par picu būs jāsamaksā "+(((Pica)pica.get(kuraPica)).getCena()+5)+"EUR.\nApmaksāt?","Samaksa", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+			if (x == JOptionPane.OK_OPTION) 
+			JOptionPane.showMessageDialog(null, "Pica veiksmīgi piegādāta uz tavām mājām: "+((Persona)klienti.get(klients)).getAdrese(), "Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+			else
+				policija();
+		}
+		pica.remove(kuraPica);
+	}else
+		JOptionPane.showMessageDialog(null, "Tev nav nevienas picas!", "Kļūda", JOptionPane.ERROR_MESSAGE);
+}
+
+static ArrayList<Object> pasutitPicu(int klients, ArrayList<Object> klienti, ArrayList<Object> picas) {
+	
+	return picas;
+}
+
+public static void policija() {
+	 	ImageIcon policijaAtbr = new ImageIcon("/policija.gif");
+	    Image scaledImage = policijaAtbr.getImage().getScaledInstance(400, 300, Image.SCALE_DEFAULT);
+	    policijaAtbr = new ImageIcon(scaledImage);
+	    JLabel gifLabel = new JLabel(policijaAtbr);
+	    JOptionPane optionPane = new JOptionPane(gifLabel, JOptionPane.PLAIN_MESSAGE);
+	    JDialog dialog = optionPane.createDialog("Uzvara!");
+	    dialog.setIconImage(Toolkit.getDefaultToolkit().getImage(Pamatmape.class.getResource("/pizza.png")));
+	    dialog.setPreferredSize(new Dimension(500, 400)); 
+	    dialog.pack();
+	    dialog.setVisible(true);        
+	}
+
+static int picasIzvele(ArrayList <Object> pica) {
+	String[] rSaraksts = new String[pica.size()];
+	for(int i=0; i<rSaraksts.length; i++) {
+		rSaraksts[i] =((Pica)pica.get(i)).getPiedevas()+" "+((Pica)pica.get(i)).getLielums();
+	}
+	String izveletais = (String)JOptionPane.showInputDialog(null, "Izvēlies picu", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, rSaraksts, rSaraksts[0]);
+	return Arrays.asList(rSaraksts).indexOf(izveletais);
 }
 }

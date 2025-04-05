@@ -12,13 +12,6 @@ public class Pamatmape {
 	}
 	public static void main(String[] args) {
 		String[] darbibas = {"Izveidot profilu", "Pieslēgties","Aizvērt programmu"};
-		String[] darbibas2 = {"Pasūtīt picu", "Saņemt picu", "Apskatīties visus pasūtījums", "Rediģēt/Dzēst profilu", "Izlogoties"};
-		String[] picasVeidi = {"Izveidot savu", "Sēņu pica", "Margarita", "Četri sieri", "Karaliskā liellopa", "Pica ar ananāsiem", "Studentu pica", "Atpakaļ"};
-		String[] sanemtPicu = {"Uz vietas", "Piegāde uz mājām"};
-		String[] izvLielumu = {"20 cm", "30 cm", "42 cm"};
-		String[] izveidotPicu_piedevas = {"Mocarella siers", "Peperoni", "Tomāti", "Ananāsi", "Vistas gaļa"};
-		String[] izveidotPicu_merces = {"Ķiploku mērce", "Tomātu mērce", "Zaļumu un eļļas mērce"};
-		String[] atbilde = {"Jā", "Nē"};
 		ArrayList <Object> picas = new ArrayList <Object>();
 		ArrayList <Object> klienti = new ArrayList <Object>();
 		String izvele;
@@ -61,23 +54,40 @@ public class Pamatmape {
 			parole = Metodes.izvParoli();
 			klienti.add(new Persona(adrese, vards, uzvards, parole, telNr));
 			Metodes.saglabatFaila(adrese, vards, uzvards, parole, telNr);
-			int klients = klientaIzvele(klienti);
-			Metodes.pasutitPicu(klients);
 			break;
 		case 1:
-			String[] registr_izvele = {"Atgriezties un izveidot savu profilu", "Pieslēgties kā viesis"};
-			if(klienti.size()==0) {
-				izvele =(String) JOptionPane.showInputDialog(null, "Tu vēl neizveidoju profilu vai tas netika saglabāts", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, registr_izvele, registr_izvele[0]);
+			if(klienti.size()==0) 
+				JOptionPane.showMessageDialog(null, "Tu vēl neizveidoju profilu vai tas netika saglabāts", "Kļūda", JOptionPane.INFORMATION_MESSAGE);
+			else {
+				String[] darbibas2 = {"Pasūtīt picu", "Saņemt picu", "Apskatīties visus pasūtījums", "Rediģēt/Dzēst profilu", "Izlogoties"};
+				String[] picasVeidi = {"Izveidot savu", "Sēņu pica", "Margarita", "Četri sieri", "Karaliskā liellopa", "Pica ar ananāsiem", "Studentu pica", "Atpakaļ"};
+				String[] izvLielumu = {"20 cm", "30 cm", "42 cm"};
+				String[] izveidotPicu_piedevas = {"Mocarella siers", "Peperoni", "Tomāti", "Ananāsi", "Vistas gaļa"};
+				String[] izveidotPicu_merces = {"Ķiploku mērce", "Tomātu mērce", "Zaļumu un eļļas mērce"};
+				String[] atbilde = {"Jā", "Nē"};
+				int klients = klientaIzvele(klienti);
+				if(Metodes.ievadParoli(klients, klienti)) {
+				izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, darbibas2, darbibas2[0]);
 				izvelesIndekss = Arrays.asList(darbibas).indexOf(izvele);
-				if(izvelesIndekss==0)
+				switch(izvelesIndekss) {
+				case 0:
+					picas = Metodes.pasutitPicu(klients, klienti, picas);
 					break;
-				else {
-					Metodes.pasutitPicu(-1); //Pieslēdzās kā viesis
+				case 1:
+					if(picas.size()==0) {
+						JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Kļūda", JOptionPane.INFORMATION_MESSAGE);
+					}
+					Metodes.sanemtPicu(klients, klienti, picas);
+					break;
+				case 2:
+					if(picas.size()==0) {
+						JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Kļūda", JOptionPane.INFORMATION_MESSAGE);
+					}
+					Metodes.raditSarakstu(picas);
+				break;
+				
 				}
-			}else {
-				klients = klientaIzvele(klienti);//Pieslēdzās kā klientis
-				if(Metodes.ievadParoli(klients, klienti)) 
-					Metodes.pasutitPicu(klients);
+				}
 			}
 			break;
 		case 2:

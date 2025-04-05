@@ -32,4 +32,10 @@ public boolean getVieta() {
 }
 // Setteri
 // Metodes
+public String izvadit() {
+	return "Piedevas: "+getPiedevas()+
+			"\nMērces: "+getMerces()+
+			"\nIzmērs: "+getLielums()+
+			"\nCena: "+getCena();
+}
 }
