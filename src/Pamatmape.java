@@ -1,15 +1,6 @@
-import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Arrays;
-import javax.swing.Box;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
 public class Pamatmape {
 	static int klientaIzvele(ArrayList <Object> klienti) {
 		String[] rSaraksts = new String[klienti.size()];
@@ -38,7 +29,7 @@ public class Pamatmape {
 		izvelesIndekss = Arrays.asList(darbibas).indexOf(izvele);
 		switch(izvelesIndekss) {
 		case 0:
-			String vards="", uzvards="", adrese="", parole="", apstParoli="";
+			String vards="", uzvards="", adrese="", parole="";
 			do {
 				vards = JOptionPane.showInputDialog("Ievadi savu vārdu: ");
 				if (vards == null) break;
@@ -67,14 +58,17 @@ public class Pamatmape {
 						JOptionPane.showMessageDialog(null, "Tu neievadīji korektu skaitli!", "Kļūda", JOptionPane.ERROR_MESSAGE);	
 					}
 			}while(telNr>99999999 || telNr<10000000);
-			do {
-				parole = JOptionPane.showInputDialog("Ievadi savu paroli: ");
-				apstParoli = JOptionPane.showInputDialog("Apstiprini savu paroli: ");
-				if(!parole.equals(apstParoli)) 
-					JOptionPane.showMessageDialog(null, "Paroles nesakrīt!", "Kļūda", JOptionPane.ERROR_MESSAGE);	
-			}while(!parole.equals(apstParoli));
+//			do {
+//				parole = JOptionPane.showInputDialog("Ievadi savu paroli: ");
+//				apstParoli = JOptionPane.showInputDialog("Apstiprini savu paroli: ");
+//				if(!parole.equals(apstParoli)) 
+//					JOptionPane.showMessageDialog(null, "Paroles nesakrīt!", "Kļūda", JOptionPane.ERROR_MESSAGE);	
+//			}while(!parole.equals(apstParoli));
+			parole = Metodes.izvParoli();
 			klienti.add(new Persona(adrese, vards, uzvards, parole, telNr));
 			Metodes.saglabatFaila(adrese, vards, uzvards, parole, telNr);
+			int klients = klientaIzvele(klienti);
+			Metodes.pasutitPicu(klients);
 			break;
 		case 1:
 			String[] registr_izvele = {"Atgriezties un izveidot savu profilu", "Pieslēgties kā viesis"};
@@ -87,10 +81,8 @@ public class Pamatmape {
 					Metodes.pasutitPicu(-1); //Pieslēdzās kā viesis
 				}
 			}else {
-				int klients = klientaIzvele(klienti);
-				parole = JOptionPane.showInputDialog("Ievadi savu paroli: ");
-				if(!((Persona)klienti.get(klients)).getParole().equals(parole)) {
-					JOptionPane.showMessageDialog(null, "Paroles nesakrīt!", "Kļūda", JOptionPane.ERROR_MESSAGE);
+				klients = klientaIzvele(klienti);
+				if(Metodes.ievadParoli(klients, klienti)) {
 					break;
 				}else 
 					Metodes.pasutitPicu(klients);
