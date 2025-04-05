@@ -22,8 +22,7 @@ static void saglabatFaila(String adrese, String vards, String uzvards, String pa
 		JOptionPane.showMessageDialog(null, "Radās kāda neparedzēta kļūda", "Kļūme", JOptionPane.ERROR_MESSAGE);
 	}
 }
-static ArrayList<Persona> nolasitFailu() {//Metode, kas nolasīs failu un saglabas klienta ievaddatus pirms switch konstrukcijas
-	ArrayList<Persona> klienti = new ArrayList<>();
+static ArrayList<Object> nolasitFailu(ArrayList<Object> klienti) {//Metode, kas nolasīs failu un saglabas klienta ievaddatus pirms switch konstrukcijas
 	try {
     	FileReader fr = new FileReader("Klienti.txt");
 		BufferedReader br = new BufferedReader(fr);
@@ -43,10 +42,13 @@ static ArrayList<Persona> nolasitFailu() {//Metode, kas nolasīs failu un saglab
             } else {
             	JOptionPane.showMessageDialog(null, "Radās kāda neparedzēta kļūda", "Kļūme", JOptionPane.ERROR_MESSAGE);
             }
-            return klienti;
+            
         }
+        br.close();
     } catch (IOException e) {
         e.printStackTrace();
     }
+	
+	return klienti;
 }
 }

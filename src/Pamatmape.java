@@ -38,7 +38,7 @@ public class Pamatmape {
 		izvelesIndekss = Arrays.asList(darbibas).indexOf(izvele);
 		switch(izvelesIndekss) {
 		case 0:
-			String vards="", uzvards="", adrese="";
+			String vards="", uzvards="", adrese="", parole="", apstParoli="";
 			do {
 				vards = JOptionPane.showInputDialog("Ievadi savu vārdu: ");
 				if (vards == null) break;
@@ -55,7 +55,7 @@ public class Pamatmape {
 			do {
 				adrese = JOptionPane.showInputDialog("Ievadi savu adresi: ");
 				if (adrese == null) break;
-			}while(!adrese.matches("^[-\\p{L}]+$") || vards.length()<3);
+			}while(!adrese.matches("^[-\\p{L} ]+$") || vards.length()<3);
 			if(adrese == null)
 				break;
 			int telNr=0;
@@ -67,14 +67,13 @@ public class Pamatmape {
 						JOptionPane.showMessageDialog(null, "Tu neievadīji korektu skaitli!", "Kļūda", JOptionPane.ERROR_MESSAGE);	
 					}
 			}while(telNr>99999999 || telNr<10000000);
-			String parole="", apstParoli="";
 			do {
 				parole = JOptionPane.showInputDialog("Ievadi savu paroli: ");
 				apstParoli = JOptionPane.showInputDialog("Apstiprini savu paroli: ");
 				if(!parole.equals(apstParoli)) 
 					JOptionPane.showMessageDialog(null, "Paroles nesakrīt!", "Kļūda", JOptionPane.ERROR_MESSAGE);	
 			}while(!parole.equals(apstParoli));
-			klienti.add(new Persona(adrese, vards, uzvards, parole, telNr));//Ideja pievienot šo info kādā teksta dokumentā un pēc programmas izslēgšanas info saglabājas
+			klienti.add(new Persona(adrese, vards, uzvards, parole, telNr));
 			Metodes.saglabatFaila(adrese, vards, uzvards, parole, telNr);
 			break;
 		case 1:
@@ -85,16 +84,16 @@ public class Pamatmape {
 				if(izvelesIndekss==0)
 					break;
 				else {
-					Metodes.pasutitPicu(-1);
+					Metodes.pasutitPicu(-1); //Pieslēdzās kā viesis
 				}
 			}else {
-				int kursPok = klientaIzvele(klienti);
+				int klients = klientaIzvele(klienti);
 				parole = JOptionPane.showInputDialog("Ievadi savu paroli: ");
-				if(!((Persona)klienti.get(kursPok)).getParole().equals(parole)) {
+				if(!((Persona)klienti.get(klients)).getParole().equals(parole)) {
 					JOptionPane.showMessageDialog(null, "Paroles nesakrīt!", "Kļūda", JOptionPane.ERROR_MESSAGE);
 					break;
 				}else 
-					Metodes.pasutitPicu(kursPok);
+					Metodes.pasutitPicu(klients);
 			}
 			break;
 		case 2:
