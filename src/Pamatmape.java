@@ -58,12 +58,6 @@ public class Pamatmape {
 						JOptionPane.showMessageDialog(null, "Tu neievadīji korektu skaitli!", "Kļūda", JOptionPane.ERROR_MESSAGE);	
 					}
 			}while(telNr>99999999 || telNr<10000000);
-//			do {
-//				parole = JOptionPane.showInputDialog("Ievadi savu paroli: ");
-//				apstParoli = JOptionPane.showInputDialog("Apstiprini savu paroli: ");
-//				if(!parole.equals(apstParoli)) 
-//					JOptionPane.showMessageDialog(null, "Paroles nesakrīt!", "Kļūda", JOptionPane.ERROR_MESSAGE);	
-//			}while(!parole.equals(apstParoli));
 			parole = Metodes.izvParoli();
 			klienti.add(new Persona(adrese, vards, uzvards, parole, telNr));
 			Metodes.saglabatFaila(adrese, vards, uzvards, parole, telNr);
@@ -81,10 +75,8 @@ public class Pamatmape {
 					Metodes.pasutitPicu(-1); //Pieslēdzās kā viesis
 				}
 			}else {
-				klients = klientaIzvele(klienti);
-				if(Metodes.ievadParoli(klients, klienti)) {
-					break;
-				}else 
+				klients = klientaIzvele(klienti);//Pieslēdzās kā klientis
+				if(Metodes.ievadParoli(klients, klienti)) 
 					Metodes.pasutitPicu(klients);
 			}
 			break;
