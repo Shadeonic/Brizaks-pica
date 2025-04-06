@@ -7,7 +7,7 @@ public class Pamatmape {
 		for(int i=0; i<rSaraksts.length; i++) {
 			rSaraksts[i] =((Persona)klienti.get(i)).getVards()+" "+((Persona)klienti.get(i)).getUzvards();
 		}
-		String izveletais = (String)JOptionPane.showInputDialog(null, "Izvēlies profilu", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, rSaraksts, rSaraksts[0]);
+		String izveletais = (String)JOptionPane.showInputDialog(null, "Izvēlies profilu", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, rSaraksts, rSaraksts[0]);
 		return Arrays.asList(rSaraksts).indexOf(izveletais);
 	}
 	public static void main(String[] args) {
@@ -18,7 +18,7 @@ public class Pamatmape {
 		int izvelesIndekss;
 		Metodes.nolasitFailu(klienti);
 		do {
-		izvele =(String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, darbibas, darbibas[0]);
+		izvele =(String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, darbibas, darbibas[0]);
 		izvelesIndekss = Arrays.asList(darbibas).indexOf(izvele);
 		switch(izvelesIndekss) {
 		case 0:
@@ -48,7 +48,7 @@ public class Pamatmape {
 					String telNrS = JOptionPane.showInputDialog("Ievadi savu telefona numuru (bez valsts koda): ");
 					telNr = Integer.parseInt(telNrS);
 					}catch(NumberFormatException e) {
-						JOptionPane.showMessageDialog(null, "Tu neievadīji korektu skaitli!", "Kļūda", JOptionPane.ERROR_MESSAGE);	
+						JOptionPane.showMessageDialog(null, "Tu neievadīji korektu skaitli!", "Sistēmas paziņojums. Kļūda", JOptionPane.ERROR_MESSAGE);	
 					}
 			}while(telNr>99999999 || telNr<10000000);
 			parole = Metodes.izvParoli();
@@ -57,32 +57,34 @@ public class Pamatmape {
 			break;
 		case 1:
 			if(klienti.size()==0) 
-				JOptionPane.showMessageDialog(null, "Tu vēl neizveidoju profilu vai tas netika saglabāts", "Kļūda", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Tu vēl neizveidoju profilu vai tas netika saglabāts", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
 			else {
 				String[] darbibas2 = {"Pasūtīt picu", "Saņemt picu", "Apskatīties visus pasūtījums", "Rediģēt/Dzēst profilu", "Izlogoties"};
 				int klients = klientaIzvele(klienti);
 				if(Metodes.ievadParoli(klients, klienti)) {
-				izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, darbibas2, darbibas2[0]);
-				izvelesIndekss = Arrays.asList(darbibas).indexOf(izvele);
+				izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, darbibas2, darbibas2[0]);
+				izvelesIndekss = Arrays.asList(darbibas2).indexOf(izvele);
 				switch(izvelesIndekss) {
 				case 0:
 					picas = Metodes.pasutitPicu(klients, klienti, picas);
 					break;
 				case 1:
 					if(picas.size()==0) {
-						JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Kļūda", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
 					}
 					Metodes.sanemtPicu(klients, klienti, picas);
 					break;
 				case 2:
 					if(picas.size()==0) {
-						JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Kļūda", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
 					}
 					Metodes.raditSarakstu(picas);
 				break;
 				case 3:
+					
 					break;
 				case 4:
+					JOptionPane.showMessageDialog(null, "Veiksmīgi izrakstījies!", "Sistēmas paziņojums", JOptionPane.INFORMATION_MESSAGE);
 					break;
 				}
 				izvelesIndekss = -1;
@@ -90,7 +92,7 @@ public class Pamatmape {
 			}
 			break;
 		case 2:
-			JOptionPane.showMessageDialog(null, "Programma apturēta", "Informācija", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Programma apturēta", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 			break;
 		}
 	}while(izvelesIndekss != 2);
