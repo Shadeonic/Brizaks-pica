@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,15 +12,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
-
 public class Pamatmape_frame extends JFrame {
-
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
+	 // Launch the application.
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -34,12 +28,10 @@ public class Pamatmape_frame extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
+	 // Create the frame.
 	private ArrayList<Object> klienti;
 	public Pamatmape_frame() {
+		setResizable(false);
 		klienti = new ArrayList<>();
 		ArrayList <Object> picas = new ArrayList <Object>();
 		klienti = Metodes.nolasitFailu(klienti);
@@ -57,7 +49,9 @@ public class Pamatmape_frame extends JFrame {
 		JButton izvProf = new JButton("Izveidot profilu");
 		izvProf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Pamatmape_frame.this.setVisible(false);
 				 klienti = Metodes.izvProfilu(klienti);
+				Pamatmape_frame.this.setVisible(true);
 			}
 		});
 		izvProf.setBounds(156, 48, 123, 23);
@@ -66,6 +60,7 @@ public class Pamatmape_frame extends JFrame {
 		JButton pieslegties = new JButton("Pieslēgties");
 		pieslegties.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Pamatmape_frame.this.setVisible(false);
 				if(klienti.size()==0) 
 					JOptionPane.showMessageDialog(null, "Tu vēl neizveidoju profilu vai tas netika saglabāts", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
 				else {
@@ -79,8 +74,7 @@ public class Pamatmape_frame extends JFrame {
 					izvelesIndekss = Arrays.asList(darbibas2).indexOf(izvele);
 					switch(izvelesIndekss) {
 					case 0:
-						//Izv jauno JFrame
-						break;
+					    break;
 					case 1:
 						if(picas.size()==0) {
 							JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
@@ -105,14 +99,16 @@ public class Pamatmape_frame extends JFrame {
 					}while(izvelesIndekss!=4);
 					}
 				}
+				Pamatmape_frame.this.setVisible(true);
 			}
 		});
 		pieslegties.setBounds(156, 101, 123, 23);
 		contentPane.add(pieslegties);
 		
-		JButton aizvProg = new JButton("Aizvērt programmu");
+		JButton aizvProg = new JButton("Beigt darbu");
 		aizvProg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Pamatmape_frame.this.setVisible(false);
 				JOptionPane.showMessageDialog(null, "Programma apturēta", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 				JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(aizvProg); // Get the parent frame
 		        if (currentFrame != null) {

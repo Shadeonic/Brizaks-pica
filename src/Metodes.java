@@ -36,16 +36,16 @@ static ArrayList<Object> izvProfilu(ArrayList<Object> klienti) {
 String vards="", uzvards="", adrese="", parole="";
 do {
 	vards = JOptionPane.showInputDialog("Ievadi savu vārdu: ");
-	if (vards == null) break;
-}while(!vards.matches("^[-\\p{L}]+$") || vards.length()<3 || vards == null);
+	if (vards == null) vards="";;
+}while(!vards.matches("^[-\\p{L} ]+$") || vards.length()<3);
 do {
 	uzvards = JOptionPane.showInputDialog("Ievadi savu uzvārdu: ");
-	if (uzvards == null) break;
-}while(!uzvards.matches("^[-\\p{L}]+$") || vards.length()<3 || uzvards == null);
+	if (uzvards == null) uzvards="";;
+}while(!uzvards.matches("^[-\\p{L}]+$") || vards.length()<3);
 do {
 	adrese = JOptionPane.showInputDialog("Ievadi savu adresi: ");
-	if (adrese == null) break;
-}while(!adrese.matches("^[-\\p{L} ]+$") || vards.length()<3 || adrese == null);
+	if (adrese == null) adrese="";;
+}while(!adrese.matches("^[-\\p{L}\\d ]+$") || vards.length()<3);
 int telNr=0;
 do {
 	try {

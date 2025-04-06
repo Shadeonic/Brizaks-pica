@@ -28,6 +28,7 @@ public class picas_izveide extends JFrame {
 	}
 	 // Create the frame.
 	public picas_izveide() {
+		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Pamatmape_frame.class.getResource("/pizza.png"))); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
