@@ -30,10 +30,11 @@ public class Pamatmape_frame extends JFrame {
 	}
 	 // Create the frame.
 	private ArrayList<Object> klienti;
+	private ArrayList <Object> picas;
 	public Pamatmape_frame() {
 		setResizable(false);
-		klienti = new ArrayList<>();
-		ArrayList <Object> picas = new ArrayList <Object>();
+		klienti = new ArrayList<Object>();
+		picas = new ArrayList <Object>();
 		klienti = Metodes.nolasitFailu(klienti);
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Pamatmape_frame.class.getResource("/pizza.png"))); 
@@ -64,17 +65,16 @@ public class Pamatmape_frame extends JFrame {
 				if(klienti.size()==0) 
 					JOptionPane.showMessageDialog(null, "Tu vēl neizveidoju profilu vai tas netika saglabāts", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
 				else {
-					String[] darbibas2 = {"Pasūtīt picu", "Saņemt picu", "Apskatīties visus pasūtījums", "Rediģēt/Dzēst profilu", "Izlogoties"};
+					String[] darbibas2 = {"Pasūtīt picu", "Saņemt picu", "Apskatīties visus pasūtījumus", "Rediģēt/Dzēst profilu", "Izlogoties"};
 					int klients = Metodes.Izvele(klienti,2);
 					if(Metodes.ievadParoli(klients, klienti)) {
 						int izvelesIndekss=-1;
 						do {
-					
 					String izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, darbibas2, darbibas2[0]);
 					izvelesIndekss = Arrays.asList(darbibas2).indexOf(izvele);
 					switch(izvelesIndekss) {
 					case 0:
-						
+						picas = Metodes.pasutitPicu(klients, picas);
 					    break;
 					case 1:
 						if(picas.size()==0) {

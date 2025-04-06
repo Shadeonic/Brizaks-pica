@@ -35,7 +35,7 @@ public boolean getVieta() {
 public String izvadit() {
 	return "Piedevas: "+getPiedevas()+
 			"\nMērces: "+getMerces()+
-			"\nIzmērs: "+getLielums()+
+			"\nIzmērs: "+getLielums()+" cm"+
 			"\nCena: "+getCena();
 }
 }
