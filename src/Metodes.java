@@ -24,12 +24,41 @@ import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 public class Metodes {
 static ArrayList<Object> pasutitPicu(int klients, ArrayList<Object> picas) {
-	String[] picasVeidi = {"Izveidot savu", "Sēņu pica", "Margarita", "Četri sieri", "Karaliskā liellopa", "Pica ar ananāsiem", "Studentu pica", "Atpakaļ"};
 	String[] izvLielumu = {"20 cm", "30 cm", "42 cm"};
 	String[] izveidotPicu_piedevas = {"Mocarella siers", "Peperoni", "Tomāti", "Ananāsi", "Vistas gaļa"};
 	String[] izveidotPicu_merces = {"Ķiploku mērce", "Tomātu mērce", "Zaļumu un eļļas mērce"};
 	String[] atbilde = {"Jā", "Nē"};
+	
 	return picas;
+}
+
+static ArrayList<Object> izvProfilu(ArrayList<Object> klienti) {
+String vards="", uzvards="", adrese="", parole="";
+do {
+	vards = JOptionPane.showInputDialog("Ievadi savu vārdu: ");
+	if (vards == null) vards="";;
+}while(!vards.matches("^[-\\p{L} ]+$") || vards.length()<3);
+do {
+	uzvards = JOptionPane.showInputDialog("Ievadi savu uzvārdu: ");
+	if (uzvards == null) uzvards="";;
+}while(!uzvards.matches("^[-\\p{L}]+$") || vards.length()<3);
+do {
+	adrese = JOptionPane.showInputDialog("Ievadi savu adresi: ");
+	if (adrese == null) adrese="";;
+}while(!adrese.matches("^[-\\p{L}\\d ]+$") || vards.length()<3);
+int telNr=0;
+do {
+	try {
+		String telNrS = JOptionPane.showInputDialog("Ievadi savu telefona numuru (bez valsts koda): ");
+		telNr = Integer.parseInt(telNrS);
+		}catch(NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, "Tu neievadīji korektu skaitli!", "Sistēmas paziņojums. Kļūda", JOptionPane.ERROR_MESSAGE);	
+		}
+}while(telNr>99999999 || telNr<10000000);
+parole = Metodes.izvParoli();
+klienti.add(new Persona(adrese, vards, uzvards, parole, telNr));
+saglabatFaila(adrese, vards, uzvards, parole, telNr);
+return klienti;
 }
 
 static void raditSarakstu(ArrayList<Object> picas) {
@@ -93,7 +122,7 @@ static String izvParoli() {
 	char[] Cparole="T".toCharArray(), ApstParole;
 	int x = JOptionPane.CANCEL_OPTION;
 	do {
-		ImageIcon logo = new ImageIcon(Pamatmape.class.getResource("/user.png")); 
+		ImageIcon logo = new ImageIcon(Pamatmape_frame.class.getResource("/user.png")); 
         Image logoImage = logo.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Pielāgo attēlu
         ImageIcon pielagotsLogo = new ImageIcon(logoImage);
      
@@ -162,7 +191,7 @@ static boolean ievadParoli(int klients, ArrayList<Object> klienti) {
 	do {
 	String Saglab_parole = ((Persona)klienti.get(klients)).getParole();
 	
-	ImageIcon logo = new ImageIcon(Pamatmape.class.getResource("/user.png")); 
+	ImageIcon logo = new ImageIcon(Pamatmape_frame.class.getResource("/user.png")); 
     Image logoImage = logo.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Pielāgo attēlu
     ImageIcon pielagotsLogo = new ImageIcon(logoImage);
  
@@ -208,7 +237,7 @@ static void sanemtPicu(int klients, ArrayList<Object> klienti, ArrayList<Object>
 	String[] sanemtPicu = {"Uz vietas", "Piegāde uz mājām"};
 	String izvele;
 	if(pica.size()>0) {
-		int kuraPica = picasIzvele(pica);
+		int kuraPica = Izvele(pica, 1);
 		izvele = (String)JOptionPane.showInputDialog(null, "Kā vēlies saņemt picu?", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, sanemtPicu, sanemtPicu[0]);
 		if(izvele=="Uz vietas") {
 			int x = JOptionPane.showConfirmDialog(null, "Par picu būs jāsamaksā "+((Pica)pica.get(kuraPica)).getCena()+"EUR.\nApmaksāt?","Sistēmas paziņojums. Samaksa", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
@@ -240,18 +269,24 @@ public static void policija() {
 	    JLabel gifLabel = new JLabel(policijaAtbr);
 	    JOptionPane optionPane = new JOptionPane(gifLabel, JOptionPane.PLAIN_MESSAGE);
 	    JDialog dialog = optionPane.createDialog("Policija...");
-	    dialog.setIconImage(Toolkit.getDefaultToolkit().getImage(Pamatmape.class.getResource("/pizza.png")));
+	    dialog.setIconImage(Toolkit.getDefaultToolkit().getImage(Pamatmape_frame.class.getResource("/pizza.png")));
 	    dialog.setPreferredSize(new Dimension(500, 400)); 
 	    dialog.pack();
 	    dialog.setVisible(true);        
 	}
 
-static int picasIzvele(ArrayList <Object> pica) {
-	String[] rSaraksts = new String[pica.size()];
-	for(int i=0; i<rSaraksts.length; i++) {
-		rSaraksts[i] =((Pica)pica.get(i)).getPiedevas()+" "+((Pica)pica.get(i)).getLielums();
+static int Izvele(ArrayList <Object> saraksts, int kas) {
+	String[] rSaraksts = new String[saraksts.size()];
+	if(kas==1) {
+		for(int i=0; i<rSaraksts.length; i++) {//Saraksts ar picām
+			rSaraksts[i] =((Pica)saraksts.get(i)).getPiedevas()+" "+((Pica)saraksts.get(i)).getLielums();
+		}
+	}else {
+		for(int i=0; i<rSaraksts.length; i++) {//Sarakats ar klientiem
+			rSaraksts[i] =((Persona)saraksts.get(i)).getVards()+" "+((Persona)saraksts.get(i)).getUzvards();
+		}
 	}
-	String izveletais = (String)JOptionPane.showInputDialog(null, "Izvēlies picu", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, rSaraksts, rSaraksts[0]);
+		String izveletais = (String)JOptionPane.showInputDialog(null, "Izvēlies", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, rSaraksts, rSaraksts[0]);
 	return Arrays.asList(rSaraksts).indexOf(izveletais);
-}
+	}
 }
