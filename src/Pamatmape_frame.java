@@ -74,7 +74,7 @@ public class Pamatmape_frame extends JFrame {
 					izvelesIndekss = Arrays.asList(darbibas2).indexOf(izvele);
 					switch(izvelesIndekss) {
 					case 0:
-						
+						//Picas izveide
 					    break;
 					case 1:
 						if(picas.size()==0) {
@@ -91,7 +91,7 @@ public class Pamatmape_frame extends JFrame {
 						Metodes.raditSarakstu(picas);
 					break;
 					case 3:
-						//Red. profilu
+						klienti = ((Persona)klienti.get(klients)).rediget(klienti, klients);
 						break;
 					case 4:
 						JOptionPane.showMessageDialog(null, "Veiksmīgi izrakstījies!", "Sistēmas paziņojums", JOptionPane.INFORMATION_MESSAGE);
@@ -111,9 +111,9 @@ public class Pamatmape_frame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Pamatmape_frame.this.setVisible(false);
 				JOptionPane.showMessageDialog(null, "Programma apturēta", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
-				JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(aizvProg); // Get the parent frame
+				JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(aizvProg); 
 		        if (currentFrame != null) {
-		            currentFrame.dispose(); // Close the frame
+		            currentFrame.dispose(); 
 		        }
 			}
 		});

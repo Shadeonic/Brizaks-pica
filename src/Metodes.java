@@ -52,7 +52,7 @@ do {
 		String telNrS = JOptionPane.showInputDialog("Ievadi savu telefona numuru (bez valsts koda): ");
 		telNr = Integer.parseInt(telNrS);
 		}catch(NumberFormatException e) {
-			JOptionPane.showMessageDialog(null, "Tu neievadīji korektu skaitli!", "Sistēmas paziņojums. Kļūda", JOptionPane.ERROR_MESSAGE);	
+			JOptionPane.showMessageDialog(null, "Tu neievadīji korektu numuru!", "Sistēmas paziņojums. Kļūda", JOptionPane.ERROR_MESSAGE);	
 		}
 }while(telNr>99999999 || telNr<10000000);
 parole = Metodes.izvParoli();

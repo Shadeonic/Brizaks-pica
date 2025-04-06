@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import javax.swing.JOptionPane;
+
 public class Persona {
 //	atribūti
 private String adrese, vards, uzvards, parole;
@@ -30,7 +35,94 @@ public String getParole() {
 public int getTalrunis() {
 	return talrunis;
 }
+public ArrayList<Object> rediget(ArrayList<Object> klienti, int klients) {
+	//void saglabatFaila(String adrese, String vards, String uzvards, String parole, int telNr) {
+	String[] rediget = {"Vārdu", "Uzvārdu", "Adresi", "Paroli", "Telefona numuru"};
+	String izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, rediget, rediget[0]);
+	int izvelesIndekss = Arrays.asList(rediget).indexOf(izvele);
+	switch(izvelesIndekss) {
+	case 0:
+		nomVards();
+	break;
+	case 1:
+		nomUzvards();
+		break;
+	case 2:
+		nomAdresi();
+		break;
+	case 3:
+		nomParoli();
+		break;
+	case 4:
+		nomTel();
+		break;
+	}
+	klienti.remove(klients);
+	klienti.add(new Persona(adrese, vards, uzvards, parole, talrunis));
+	Metodes.saglabatFaila(adrese, vards, uzvards, parole, talrunis);
+	return klienti;
+}
+public void nomVards() {
+	String[] atbilde = {"Jā", "Nē"};
+	String vards=getVards();
+	do {
+		vards = JOptionPane.showInputDialog("Ievadi savu jauno vārdu: ");
+		if (vards == null) vards="";
+	}while(!vards.matches("^[-\\p{L} ]+$") || vards.length()<3);
+	String izvele = (String) JOptionPane.showInputDialog(null, "Nomainīt vārdu uz "+vards+"?", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]);
+	if(izvele.equals("Jā"))
+		this.vards = vards;
+}
 
-//Setteri
-//Metodes
+public void nomUzvards() {
+	String[] atbilde = {"Jā", "Nē"};
+	String uzvards=getUzvards();
+	do {
+		uzvards = JOptionPane.showInputDialog("Ievadi savu jauno uzvārdu: ");
+		if (uzvards == null) uzvards="";
+	}while(!uzvards.matches("^[-\\p{L} ]+$") || uzvards.length()<3);
+	String izvele = (String) JOptionPane.showInputDialog(null, "Nomainīt uzvārdu uz "+uzvards+"?", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]);
+	if(izvele.equals("Jā"))
+		this.uzvards = uzvards;
+}
+
+public void nomAdresi() {
+	String[] atbilde = {"Jā", "Nē"};
+	String adrese=getAdrese();
+	do {
+		adrese = JOptionPane.showInputDialog("Ievadi savu jauno adresi: ");
+		if (adrese == null) adrese="";
+	}while(!adrese.matches("^[-\\p{L}\\d ]+$") || adrese.length()<3);
+	String izvele = (String) JOptionPane.showInputDialog(null, "Nomainīt adresi uz "+adrese+"?", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]);
+	if(izvele.equals("Jā"))
+		this.adrese = adrese;
+}
+
+public void nomParoli() {
+	String[] atbilde = {"Jā", "Nē"};
+	String parole=getParole();
+	do {
+		parole = JOptionPane.showInputDialog("Ievadi savu jauno paroli: ");
+		if (parole == null) parole="";
+	}while(!parole.matches("^[-\\p{L} ]+$") || parole.length()<3);
+	String izvele = (String) JOptionPane.showInputDialog(null, "Nomainīt paroli uz "+parole+"?", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]);
+	if(izvele.equals("Jā"))
+		this.parole = parole;
+}
+
+public void nomTel() {
+	String[] atbilde = {"Jā", "Nē"};
+	int talrunis=getTalrunis();
+	do {
+		try {
+			String telNrS = JOptionPane.showInputDialog("Ievadi savu jauno telefona numuru (bez valsts koda): ");
+			talrunis = Integer.parseInt(telNrS);
+			}catch(NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "Tu neievadīji korektu numuru!", "Sistēmas paziņojums. Kļūda", JOptionPane.ERROR_MESSAGE);	
+			}
+	}while(talrunis>99999999 || talrunis<10000000);
+	String izvele = (String) JOptionPane.showInputDialog(null, "Nomainīt talruni uz "+talrunis+"?", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]);
+	if(izvele.equals("Jā"))
+		this.talrunis = talrunis;
+}
 }
