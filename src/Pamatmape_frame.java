@@ -72,6 +72,8 @@ public class Pamatmape_frame extends JFrame {
 						do {
 					String izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, darbibas2, darbibas2[0]);
 					izvelesIndekss = Arrays.asList(darbibas2).indexOf(izvele);
+					if (izvele==null)
+						izvelesIndekss=-1;
 					switch(izvelesIndekss) {
 					case 0:
 						picas = Metodes.pasutitPicu(klients, picas);
@@ -81,7 +83,7 @@ public class Pamatmape_frame extends JFrame {
 							JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
 							break;
 						}
-						Metodes.sanemtPicu(klients, klienti, picas);
+							Metodes.sanemtPicu(klients, klienti, picas);						
 						break;
 					case 2:
 						if(picas.size()==0) {
