@@ -53,7 +53,7 @@ public ArrayList<Object> rediget(ArrayList<Object> klienti, int klients) {
 		nomAdresi();
 		break;
 	case 3:
-		nomParoli();
+		this.parole = Metodes.izvParoli();
 		break;
 	case 4:
 		nomTel();
@@ -102,18 +102,6 @@ public void nomAdresi() {
 	String izvele = (String) JOptionPane.showInputDialog(null, "Nomainīt adresi uz "+adrese+"?", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]);
 	if(izvele.equals("Jā"))
 		this.adrese = adrese;
-}
-
-public void nomParoli() {
-	String[] atbilde = {"Jā", "Nē"};
-	String parole=getParole();
-	do {
-		parole = JOptionPane.showInputDialog("Ievadi savu jauno paroli: ");
-		if (parole == null) parole="";
-	}while(!parole.matches("^[-\\p{L} ]+$") || parole.length()<3);
-	String izvele = (String) JOptionPane.showInputDialog(null, "Nomainīt paroli uz "+parole+"?", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]);
-	if(izvele.equals("Jā"))
-		this.parole = parole;
 }
 
 public void nomTel() {
