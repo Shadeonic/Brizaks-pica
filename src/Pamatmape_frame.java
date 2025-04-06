@@ -74,7 +74,7 @@ public class Pamatmape_frame extends JFrame {
 					izvelesIndekss = Arrays.asList(darbibas2).indexOf(izvele);
 					switch(izvelesIndekss) {
 					case 0:
-						//Picas izveide
+						
 					    break;
 					case 1:
 						if(picas.size()==0) {

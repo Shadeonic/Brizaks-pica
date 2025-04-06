@@ -37,9 +37,11 @@ public int getTalrunis() {
 }
 public ArrayList<Object> rediget(ArrayList<Object> klienti, int klients) {
 	//void saglabatFaila(String adrese, String vards, String uzvards, String parole, int telNr) {
-	String[] rediget = {"Vārdu", "Uzvārdu", "Adresi", "Paroli", "Telefona numuru"};
+	String[] rediget = {"Vārdu", "Uzvārdu", "Adresi", "Paroli", "Telefona numuru", "Atpakaļ"};
+	int izvelesIndekss=-1;
+	do {
 	String izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, rediget, rediget[0]);
-	int izvelesIndekss = Arrays.asList(rediget).indexOf(izvele);
+	izvelesIndekss = Arrays.asList(rediget).indexOf(izvele);
 	switch(izvelesIndekss) {
 	case 0:
 		nomVards();
@@ -56,7 +58,11 @@ public ArrayList<Object> rediget(ArrayList<Object> klienti, int klients) {
 	case 4:
 		nomTel();
 		break;
+	case 5:
+		JOptionPane.showMessageDialog(null, "Notiek atgriešanās", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
+		break;
 	}
+	}while(izvelesIndekss!=5);
 	klienti.remove(klients);
 	klienti.add(new Persona(adrese, vards, uzvards, parole, talrunis));
 	Metodes.saglabatFaila(adrese, vards, uzvards, parole, talrunis);

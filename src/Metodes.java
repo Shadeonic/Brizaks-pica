@@ -24,6 +24,7 @@ import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 public class Metodes {
 static ArrayList<Object> pasutitPicu(int klients, ArrayList<Object> picas) {
+	String[] picasIzv = {"Sēņu pica", "Margarita", "Četri sieri", "Čempionu", "Pepperoni", "Studentu", "Sava pica", "Atpakaļ"};
 	String[] izvLielumu = {"20 cm", "30 cm", "42 cm"};
 	String[] izveidotPicu_piedevas = {"Mocarella siers", "Peperoni", "Tomāti", "Ananāsi", "Vistas gaļa"};
 	String[] izveidotPicu_merces = {"Ķiploku mērce", "Tomātu mērce", "Zaļumu un eļļas mērce"};
