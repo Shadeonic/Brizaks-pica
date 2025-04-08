@@ -84,19 +84,25 @@ public class Pamatmape_frame extends JFrame {
 							JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
 							break;
 						}
-							Metodes.sanemtPicu(klients, klienti, picas);						
+							Metodes.sanemtPicu(klients, klienti, picas);
+							//metode, kas saglabā izpirkto picu
 						break;
 					case 2:
 						if(picas.size()==0) {
 							JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
 						break;
-						}
+						}//izvēle, skatīties jau izpirktās vai tikai pieejamās
 						Metodes.raditSarakstu(picas);
+						
 					break;
 					case 3:
 						klienti = ((Persona)klienti.get(klients)).rediget(klienti, klients);
 						break;
 					case 4:
+						//šeit, pirms izlogošanās, re-saglabāsies visas picas, kuras tika izveidotas/izpirktas, lai tās tiktu izņemtas no saraksta
+						
+						
+						
 						JOptionPane.showMessageDialog(null, "Veiksmīgi izrakstījies!", "Sistēmas paziņojums", JOptionPane.INFORMATION_MESSAGE);
 						break;
 					}	
