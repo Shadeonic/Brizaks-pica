@@ -35,7 +35,8 @@ public class Pamatmape_frame extends JFrame {
 		setResizable(false);
 		klienti = new ArrayList<Object>();
 		picas = new ArrayList <Object>();
-		klienti = Metodes.nolasitFailu(klienti);
+		klienti = Metodes.nolasitFailu(klienti, "Klienti.txt");
+		picas = Metodes.nolasitFailu(picas, "gatvasPicas.txt");
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Pamatmape_frame.class.getResource("/pizza.png"))); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,7 +52,7 @@ public class Pamatmape_frame extends JFrame {
 		izvProf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Pamatmape_frame.this.setVisible(false);
-				 klienti = Metodes.izvProfilu(klienti);
+				klienti = Metodes.izvProfilu(klienti);
 				Pamatmape_frame.this.setVisible(true);
 			}
 		});

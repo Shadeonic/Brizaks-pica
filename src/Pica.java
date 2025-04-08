@@ -1,5 +1,3 @@
-import javax.swing.JOptionPane;
-
 public class Pica {
 //	atribūti
 private double lielums, cena;
@@ -38,6 +36,7 @@ public String izvadit() {
 	return "Piedevas: "+getPiedevas()+
 			"\nMērces: "+getMerces()+
 			"\nIzmērs: "+getLielums()+" cm"+
+			"\nIegādāta uz vietas "+((getVieta())? "ir":"nav")+
 			"\nCena: "+getCena();
 }
 }

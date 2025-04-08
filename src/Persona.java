@@ -36,7 +36,6 @@ public int getTalrunis() {
 	return talrunis;
 }
 public ArrayList<Object> rediget(ArrayList<Object> klienti, int klients) {
-	//void saglabatFaila(String adrese, String vards, String uzvards, String parole, int telNr) {
 	String[] rediget = {"Vārdu", "Uzvārdu", "Adresi", "Paroli", "Telefona numuru", "Atpakaļ"};
 	int izvelesIndekss=-1;
 	do {
