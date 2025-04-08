@@ -40,19 +40,4 @@ public String izvadit() {
 			"\nIzmērs: "+getLielums()+" cm"+
 			"\nCena: "+getCena();
 }
-
-public int izvLielumu() {
-	String[] izvLielumu = {"20 cm", "30 cm", "42 cm"};
-	String izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies picas lielumu", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, izvLielumu, izvLielumu[0]);
-	if (izvele=="20 cm") return 20;
-	else if (izvele=="30 cm") return 30;
-	return 42;
-}
-
-public boolean izvVietu() {
-	String[] vieta = {"Saņem uz vietas", "Piegāde uz mājām"};
-	String izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies piegādi", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, vieta, vieta[0]);
-	if (izvele=="Saņem uz vietas") return true;
-	return false;
-}
 }

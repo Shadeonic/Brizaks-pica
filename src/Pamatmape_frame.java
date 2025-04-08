@@ -76,7 +76,7 @@ public class Pamatmape_frame extends JFrame {
 						izvelesIndekss=-1;
 					switch(izvelesIndekss) {
 					case 0:
-						picas = Metodes.pasutitPicu(klients, picas);
+						Metodes.pasutitPicu(klients, picas);
 					    break;
 					case 1:
 						if(picas.size()==0) {
