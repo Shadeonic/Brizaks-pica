@@ -182,9 +182,11 @@ static void apskatitIzdzestasPicas() {
 	try {
 	FileReader fr = new FileReader("izpirktasPicas.txt");
 	BufferedReader br = new BufferedReader(fr);
-	String nolasitais = "", teksts;
+	StringBuilder nolasitais = new StringBuilder();
+	String teksts;
 	while((teksts = br.readLine()) !=null) {
-		nolasitais += teksts+"\n";
+		teksts = teksts.replace("true", "ir uz vietas").replace("false", "nav uz vietas");
+        nolasitais.append(teksts).append("\n");
 	}
 	br.close();
 	JOptionPane.showMessageDialog(null, nolasitais, "Faila saturs", JOptionPane.INFORMATION_MESSAGE);
@@ -329,7 +331,7 @@ static void saglabatFaila(ArrayList<Object> saraksts) {//pēc katras klienta izv
 
 static void saglabatFailaPicas(String vieta, ArrayList<Object> saraksts, boolean saglabat) {//pēc katras klienta izveidošanas, tas tiek ievadīts šajā failā
 	try {
-	FileWriter fr = new FileWriter("Klienti.txt", saglabat);
+	FileWriter fr = new FileWriter(vieta, saglabat);
 	PrintWriter pw = new PrintWriter(fr);
 	for(int i=0; i<saraksts.size(); i++) {
 		int lielums = ((Pica)saraksts.get(i)).getLielums();
@@ -344,9 +346,6 @@ static void saglabatFailaPicas(String vieta, ArrayList<Object> saraksts, boolean
 		JOptionPane.showMessageDialog(null, "Radās kāda neparedzēta kļūda!", "Sistēmas paziņojums. Kļūme", JOptionPane.ERROR_MESSAGE);
 	}
 }
-
-//Izveidot for ciklu, kas pats ņems visas vērtības no saraksta un saglabās failā. Visas padotas vērtības vairs nav vajadzīgas. Vajag padot tikai sarakstu
-//un ar getteriem iegūt visas nepieciešamās vertības.
 
 static ArrayList<Object> nolasitFailu(ArrayList<Object> saraksts, String vieta) {//Metode, kas nolasīs failu un saglabas klienta ievaddatus pirms switch konstrukcijas
 	try {
@@ -412,6 +411,7 @@ static void sanemtPicu(int klients, ArrayList<Object> klienti, ArrayList<Object>
 		ArrayList<Object> delPica = new ArrayList<Object>();
 		delPica.add(removedPica);
 		saglabatFailaPicas("izpirktasPicas.txt", delPica, true);//saglabā apmaksāto picu sarakstā
+		saglabatFailaPicas("gatvasPicas.txt", pica, false);
 	}else
 		JOptionPane.showMessageDialog(null, "Tev nav nevienas picas!", "Sistēmas paziņojums. Kļūda", JOptionPane.ERROR_MESSAGE);
 }

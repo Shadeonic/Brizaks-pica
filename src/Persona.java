@@ -65,9 +65,11 @@ public ArrayList<Object> rediget(ArrayList<Object> klienti, int klients) {
 			izvele = (String) JOptionPane.showInputDialog(null, "Šī darbība ir neatgriežama!", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]);
 			if(izvele=="Jā") {
 				String apstiprini = JOptionPane.showInputDialog(null, "Apstiprini izvēli, ievadot \"Apstiprinu\"!");
-				if(apstiprini.equals("Apstiprinu"))
+				if(apstiprini.equals("Apstiprinu")) {
 				dzests = true;
 				izvelesIndekss=6;
+				}else
+					JOptionPane.showMessageDialog(null, "Darbība atcelta", "Sistēmas paziņojums", JOptionPane.INFORMATION_MESSAGE);
 			}else
 				JOptionPane.showMessageDialog(null, "Darbība atcelta", "Sistēmas paziņojums", JOptionPane.INFORMATION_MESSAGE);
 		}else
