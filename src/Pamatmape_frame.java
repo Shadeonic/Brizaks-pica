@@ -92,7 +92,13 @@ public class Pamatmape_frame extends JFrame {
 							JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
 						break;
 						}//izvēle, skatīties jau izpirktās vai tikai pieejamās
-						Metodes.raditSarakstu(picas);						
+						String[] izv = {"Apskatīties tikko izveidotās picas", "Apskatīties jau pārdotās picas"};
+						izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, izv, izv[0]);
+						int id = Arrays.asList(izv).indexOf(izvele);
+						if(id==0)
+							Metodes.raditSarakstu(picas);		
+						else
+							Metodes.apskatitIzdzestasPicas();
 					break;
 					case 3:
 						try {

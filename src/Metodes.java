@@ -178,6 +178,21 @@ static void raditSarakstu(ArrayList<Object> picas) {//rāda visu sarakstu ar izv
     JOptionPane.showMessageDialog(null, panel, "Picu saraksts", JOptionPane.PLAIN_MESSAGE);
 }
 
+static void apskatitIzdzestasPicas() {
+	try {
+	FileReader fr = new FileReader("izpirktasPicas.txt");
+	BufferedReader br = new BufferedReader(fr);
+	String nolasitais = "", teksts;
+	while((teksts = br.readLine()) !=null) {
+		nolasitais += teksts+"\n";
+	}
+	br.close();
+	JOptionPane.showMessageDialog(null, nolasitais, "Faila saturs", JOptionPane.INFORMATION_MESSAGE);
+	}catch(IOException e){
+		JOptionPane.showMessageDialog(null, "Radās kļūda, nolasot failu!", "Kļūda", JOptionPane.WARNING_MESSAGE);
+	}
+}
+
 static String izvParoli() {//Veido un apstiprina paroli
 	char[] Cparole="T".toCharArray(), ApstParole;
 	int x = JOptionPane.CANCEL_OPTION;
