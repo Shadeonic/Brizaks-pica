@@ -38,6 +38,7 @@ public int getTalrunis() {
 public ArrayList<Object> rediget(ArrayList<Object> klienti, int klients) {
 	String[] rediget = {"Vārdu", "Uzvārdu", "Adresi", "Paroli", "Telefona numuru", "Dzēst profilu", "Atpakaļ"};
 	int izvelesIndekss=-1;
+	boolean dzests = false;
 	do {
 	String izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, rediget, rediget[0]);
 	izvelesIndekss = Arrays.asList(rediget).indexOf(izvele);
@@ -65,7 +66,7 @@ public ArrayList<Object> rediget(ArrayList<Object> klienti, int klients) {
 			if(izvele=="Jā") {
 				String apstiprini = JOptionPane.showInputDialog(null, "Apstiprini izvēli, ievadot \"Apstiprinu\"!");
 				if(apstiprini.equals("Apstiprinu"))
-				klienti.remove(klients);
+				dzests = true;
 				izvelesIndekss=6;
 			}else
 				JOptionPane.showMessageDialog(null, "Darbība atcelta", "Sistēmas paziņojums", JOptionPane.INFORMATION_MESSAGE);
@@ -78,7 +79,8 @@ public ArrayList<Object> rediget(ArrayList<Object> klienti, int klients) {
 	}
 	}while(izvelesIndekss!=6);
 	klienti.remove(klients);
-	klienti.add(new Persona(adrese, vards, uzvards, parole, talrunis));
+	if(!dzests)
+		klienti.add(new Persona(adrese, vards, uzvards, parole, talrunis));
 	Metodes.saglabatFaila(klienti);
 	return klienti;
 }

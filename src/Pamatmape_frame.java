@@ -86,7 +86,6 @@ public class Pamatmape_frame extends JFrame {
 							break;
 						}
 							Metodes.sanemtPicu(klients, klienti, picas);
-							//metode, kas saglabā izpirkto picu
 						break;
 					case 2:
 						if(picas.size()==0) {

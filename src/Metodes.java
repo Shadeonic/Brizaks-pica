@@ -294,38 +294,39 @@ static boolean ievadParoli(int klients, ArrayList<Object> klienti) {
 }
 //-----------------------------------------------------------------Beidzās personas info nodaļa--------------------------------------------
 static void saglabatFaila(ArrayList<Object> saraksts) {//pēc katras klienta izveidošanas, tas tiek ievadīts šajā failā
+	try {
+	FileWriter fr = new FileWriter("Klienti.txt");
+	PrintWriter pw = new PrintWriter(fr);
 	for(int i=0; i<saraksts.size(); i++) {
 		String adrese = ((Persona)saraksts.get(i)).getAdrese();
 		String vards = ((Persona)saraksts.get(i)).getVards();
 		String uzvards = ((Persona)saraksts.get(i)).getUzvards();
 		String parole = ((Persona)saraksts.get(i)).getParole();
 		int telNr = ((Persona)saraksts.get(i)).getTalrunis();
-	try {
-		FileWriter fr = new FileWriter("Klienti.txt");
-		PrintWriter pw = new PrintWriter(fr);
+	
 			pw.println(vards+": "+uzvards+": "+adrese+": "+telNr+": "+parole);
+	}
 		pw.close();
 	}catch(IOException e) {
 		JOptionPane.showMessageDialog(null, "Radās kāda neparedzēta kļūda!", "Sistēmas paziņojums. Kļūme", JOptionPane.ERROR_MESSAGE);
 	}
-	}
 }
 
 static void saglabatFailaPicas(String vieta, ArrayList<Object> saraksts, boolean saglabat) {//pēc katras klienta izveidošanas, tas tiek ievadīts šajā failā
+	try {
+	FileWriter fr = new FileWriter("Klienti.txt", saglabat);
+	PrintWriter pw = new PrintWriter(fr);
 	for(int i=0; i<saraksts.size(); i++) {
 		int lielums = ((Pica)saraksts.get(i)).getLielums();
 		String piedevas = ((Pica)saraksts.get(i)).getPiedevas();
 		String merces = ((Pica)saraksts.get(i)).getMerces();
 		double cena = ((Pica)saraksts.get(i)).getCena();
 		boolean sanemta_uz_vietas = ((Pica)saraksts.get(i)).getVieta();
-	try {
-		FileWriter fr = new FileWriter(vieta, saglabat);
-		PrintWriter pw = new PrintWriter(fr);
 			pw.println(piedevas+": "+merces+": "+lielums+": "+sanemta_uz_vietas+": "+cena);
+	}
 		pw.close();
 	}catch(IOException e) {
 		JOptionPane.showMessageDialog(null, "Radās kāda neparedzēta kļūda!", "Sistēmas paziņojums. Kļūme", JOptionPane.ERROR_MESSAGE);
-	}
 	}
 }
 
