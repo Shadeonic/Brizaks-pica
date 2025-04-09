@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -92,17 +93,17 @@ public class Pamatmape_frame extends JFrame {
 							JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
 						break;
 						}//izvēle, skatīties jau izpirktās vai tikai pieejamās
-						Metodes.raditSarakstu(picas);
-						
+						Metodes.raditSarakstu(picas);						
 					break;
 					case 3:
+						try {
 						klienti = ((Persona)klienti.get(klients)).rediget(klienti, klients);
+						izvelesIndekss = 4;
+						}catch(IndexOutOfBoundsException ex) {
+						        izvelesIndekss = 4;
+						}
 						break;
-					case 4:
-						//šeit, pirms izlogošanās, re-saglabāsies visas picas, kuras tika izveidotas/izpirktas, lai tās tiktu izņemtas no saraksta
-						
-						
-						
+					case 4:																	
 						JOptionPane.showMessageDialog(null, "Veiksmīgi izrakstījies!", "Sistēmas paziņojums", JOptionPane.INFORMATION_MESSAGE);
 						break;
 					}	

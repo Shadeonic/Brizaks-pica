@@ -1,0 +1,2 @@
+Sēnes: Tomātu un ķiploku mērces: 20.0: true: 5.0
+Karsti kūpināts bekons: Ķiploku mērce: 20: true: 9.32

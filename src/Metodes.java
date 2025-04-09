@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.Box;
@@ -24,10 +25,12 @@ import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 public class Metodes {
 static void pasutitPicu(int klients, ArrayList<Object> picas) {//veido picu
+	DecimalFormat df = new DecimalFormat("0.##");
 	String[] picasIzv = {"Sēņu pica", "Margarita", "Čempionu", "Pepperoni", "Sava pica", "Veikt pasūtījumu"};
 	String[] atbilde = {"Jā", "Nē"};
 	int izvelesIndekss=-1;
-	double lielums=0, cena=0;
+	double cena=0;
+	int lielums = 0;
 	String piedevas="", merces="";
 	boolean vieta=false;
 	do {
@@ -42,9 +45,8 @@ static void pasutitPicu(int klients, ArrayList<Object> picas) {//veido picu
 			cena*=1.5;
 		piedevas = "Sēnes";
 		merces = "Tomātu un ķiploku mērces";
-		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+cena+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
+		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+df.format(cena)+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
 			picas.add(new Pica(lielums, piedevas, merces, cena, vieta));
-			saglabatFailaPicas(lielums, piedevas, merces, cena, vieta);
 		}else
 			JOptionPane.showMessageDialog(null, "Pasūtījums atcelts", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		break;
@@ -56,9 +58,8 @@ static void pasutitPicu(int klients, ArrayList<Object> picas) {//veido picu
 			cena*=1.5;
 		piedevas = "Mocarella";
 		merces = "Tomātu un ķiploku mērces";
-		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+cena+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
+		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+df.format(cena)+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
 			picas.add(new Pica(lielums, piedevas, merces, cena, vieta));
-			saglabatFailaPicas(lielums, piedevas, merces, cena, vieta);
 		}else
 			JOptionPane.showMessageDialog(null, "Pasūtījums atcelts", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		break;
@@ -70,9 +71,8 @@ static void pasutitPicu(int klients, ArrayList<Object> picas) {//veido picu
 			cena*=1.5;
 		piedevas = "Vārīts cūkgaļas šķiņķis, šampinjoni";
 		merces = "Taco, tomātu un ķiploku mērces";
-		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+cena+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
+		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+df.format(cena)+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
 			picas.add(new Pica(lielums, piedevas, merces, cena, vieta));
-			saglabatFailaPicas(lielums, piedevas, merces, cena, vieta);
 		}else
 			JOptionPane.showMessageDialog(null, "Pasūtījums atcelts", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		break;
@@ -84,9 +84,8 @@ static void pasutitPicu(int klients, ArrayList<Object> picas) {//veido picu
 			cena*=1.5;
 		piedevas = "Salami \"Pepperoni\", mocarella";
 		merces = "Taco, tomātu un ķiploku mērces";
-		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+cena+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
+		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+df.format(cena)+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
 			picas.add(new Pica(lielums, piedevas, merces, cena, vieta));
-			saglabatFailaPicas(lielums, piedevas, merces, cena, vieta);
 		}else
 			JOptionPane.showMessageDialog(null, "Pasūtījums atcelts", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		break;
@@ -105,9 +104,8 @@ static void pasutitPicu(int klients, ArrayList<Object> picas) {//veido picu
 			cena-=1.47;
 		else if(piedevas=="Karsti kūpināts bekons")
 			cena+=1.32;
-		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+cena+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
+		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+df.format(cena)+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
 			picas.add(new Pica(lielums, piedevas, merces, cena, vieta));
-			saglabatFailaPicas(lielums, piedevas, merces, cena, vieta);
 		}else
 			JOptionPane.showMessageDialog(null, "Pasūtījums atcelts", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		break;
@@ -116,6 +114,7 @@ static void pasutitPicu(int klients, ArrayList<Object> picas) {//veido picu
 		break;
 	}
 	}while(izvelesIndekss!=5);
+	saglabatFailaPicas("gatvasPicas.txt", picas, false);
 }
 
 static int izvLielumu() {
@@ -158,7 +157,7 @@ do {
 }while(telNr>99999999 || telNr<10000000);
 parole = Metodes.izvParoli();
 klienti.add(new Persona(adrese, vards, uzvards, parole, telNr));
-saglabatFaila(adrese, vards, uzvards, parole, telNr);
+saglabatFaila(klienti);
 return klienti;
 }
 
@@ -294,25 +293,39 @@ static boolean ievadParoli(int klients, ArrayList<Object> klienti) {
 	return false;
 }
 //-----------------------------------------------------------------Beidzās personas info nodaļa--------------------------------------------
-static void saglabatFaila(String adrese, String vards, String uzvards, String parole, int telNr) {//pēc katras klienta izveidošanas, tas tiek ievadīts šajā failā
+static void saglabatFaila(ArrayList<Object> saraksts) {//pēc katras klienta izveidošanas, tas tiek ievadīts šajā failā
+	for(int i=0; i<saraksts.size(); i++) {
+		String adrese = ((Persona)saraksts.get(i)).getAdrese();
+		String vards = ((Persona)saraksts.get(i)).getVards();
+		String uzvards = ((Persona)saraksts.get(i)).getUzvards();
+		String parole = ((Persona)saraksts.get(i)).getParole();
+		int telNr = ((Persona)saraksts.get(i)).getTalrunis();
 	try {
-		FileWriter fr = new FileWriter("Klienti.txt", false);
+		FileWriter fr = new FileWriter("Klienti.txt");
 		PrintWriter pw = new PrintWriter(fr);
 			pw.println(vards+": "+uzvards+": "+adrese+": "+telNr+": "+parole);
 		pw.close();
 	}catch(IOException e) {
 		JOptionPane.showMessageDialog(null, "Radās kāda neparedzēta kļūda!", "Sistēmas paziņojums. Kļūme", JOptionPane.ERROR_MESSAGE);
 	}
+	}
 }
 
-static void saglabatFailaPicas(double lielums, String piedevas, String merces, double cena, boolean sanemta_uz_vietas) {//pēc katras klienta izveidošanas, tas tiek ievadīts šajā failā
+static void saglabatFailaPicas(String vieta, ArrayList<Object> saraksts, boolean saglabat) {//pēc katras klienta izveidošanas, tas tiek ievadīts šajā failā
+	for(int i=0; i<saraksts.size(); i++) {
+		int lielums = ((Pica)saraksts.get(i)).getLielums();
+		String piedevas = ((Pica)saraksts.get(i)).getPiedevas();
+		String merces = ((Pica)saraksts.get(i)).getMerces();
+		double cena = ((Pica)saraksts.get(i)).getCena();
+		boolean sanemta_uz_vietas = ((Pica)saraksts.get(i)).getVieta();
 	try {
-		FileWriter fr = new FileWriter("gatvasPicas.txt", false);
+		FileWriter fr = new FileWriter(vieta, saglabat);
 		PrintWriter pw = new PrintWriter(fr);
 			pw.println(piedevas+": "+merces+": "+lielums+": "+sanemta_uz_vietas+": "+cena);
 		pw.close();
 	}catch(IOException e) {
 		JOptionPane.showMessageDialog(null, "Radās kāda neparedzēta kļūda!", "Sistēmas paziņojums. Kļūme", JOptionPane.ERROR_MESSAGE);
+	}
 	}
 }
 
@@ -341,7 +354,7 @@ static ArrayList<Object> nolasitFailu(ArrayList<Object> saraksts, String vieta) 
             		String piedevas = parts[0].trim(); 
             		String merces = parts[1].trim();
             		String lielumsS = parts[2].trim();
-	                double lielums = Double.parseDouble(lielumsS);
+	                int lielums = Integer.parseInt(lielumsS);
 	                String vietaS = parts[3].trim();
 	                boolean vietaB = Boolean.parseBoolean(vietaS);
 	                String cenaS = parts[4].trim();
@@ -379,7 +392,10 @@ static void sanemtPicu(int klients, ArrayList<Object> klienti, ArrayList<Object>
 				policija();
 			
 		}
-		pica.remove(kuraPica);//Itkā apmaksāta
+		Object removedPica= pica.remove(kuraPica);//Itkā apmaksāta
+		ArrayList<Object> delPica = new ArrayList<Object>();
+		delPica.add(removedPica);
+		saglabatFailaPicas("izpirktasPicas.txt", delPica, true);//saglabā apmaksāto picu sarakstā
 	}else
 		JOptionPane.showMessageDialog(null, "Tev nav nevienas picas!", "Sistēmas paziņojums. Kļūda", JOptionPane.ERROR_MESSAGE);
 }

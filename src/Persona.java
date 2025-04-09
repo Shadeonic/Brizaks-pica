@@ -36,7 +36,7 @@ public int getTalrunis() {
 	return talrunis;
 }
 public ArrayList<Object> rediget(ArrayList<Object> klienti, int klients) {
-	String[] rediget = {"Vārdu", "Uzvārdu", "Adresi", "Paroli", "Telefona numuru", "Atpakaļ"};
+	String[] rediget = {"Vārdu", "Uzvārdu", "Adresi", "Paroli", "Telefona numuru", "Dzēst profilu", "Atpakaļ"};
 	int izvelesIndekss=-1;
 	do {
 	String izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, rediget, rediget[0]);
@@ -58,13 +58,28 @@ public ArrayList<Object> rediget(ArrayList<Object> klienti, int klients) {
 		nomTel();
 		break;
 	case 5:
+		String[] atbilde = {"Jā", "Nē"};
+		izvele = (String) JOptionPane.showInputDialog(null, "Tiešām vēlies dzēst savu profilu?", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]);
+		if(izvele=="Jā") {
+			izvele = (String) JOptionPane.showInputDialog(null, "Šī darbība ir neatgriežama!", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]);
+			if(izvele=="Jā") {
+				String apstiprini = JOptionPane.showInputDialog(null, "Apstiprini izvēli, ievadot \"Apstiprinu\"!");
+				if(apstiprini.equals("Apstiprinu"))
+				klienti.remove(klients);
+				izvelesIndekss=6;
+			}else
+				JOptionPane.showMessageDialog(null, "Darbība atcelta", "Sistēmas paziņojums", JOptionPane.INFORMATION_MESSAGE);
+		}else
+			JOptionPane.showMessageDialog(null, "Darbība atcelta", "Sistēmas paziņojums", JOptionPane.INFORMATION_MESSAGE);
+		break;
+	case 6:
 		JOptionPane.showMessageDialog(null, "Notiek atgriešanās", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		break;
 	}
-	}while(izvelesIndekss!=5);
+	}while(izvelesIndekss!=6);
 	klienti.remove(klients);
 	klienti.add(new Persona(adrese, vards, uzvards, parole, talrunis));
-	Metodes.saglabatFaila(adrese, vards, uzvards, parole, talrunis);
+	Metodes.saglabatFaila(klienti);
 	return klienti;
 }
 public void nomVards() {

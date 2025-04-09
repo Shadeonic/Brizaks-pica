@@ -1,10 +1,13 @@
+import java.text.DecimalFormat;
+
 public class Pica {
 //	atribūti
-private double lielums, cena;
+private double cena;
+private int lielums;
 private String piedevas, merces;
 private boolean sanemta_uz_vietas;
 //  Konstruktors
-Pica(double lielums, String piedevas, String merces, double cena, boolean sanemta_uz_vietas){
+Pica(int lielums, String piedevas, String merces, double cena, boolean sanemta_uz_vietas){
 	this.lielums = lielums;
 	this.piedevas = piedevas;
 	this.merces = merces;
@@ -12,7 +15,7 @@ Pica(double lielums, String piedevas, String merces, double cena, boolean sanemt
 	this.sanemta_uz_vietas = sanemta_uz_vietas;
 }
 // Getteri
-public double getLielums() {
+public int getLielums() {
 	return lielums;
 }
 
@@ -33,10 +36,11 @@ public boolean getVieta() {
 // Setteri
 // Metodes
 public String izvadit() {
+	DecimalFormat df = new DecimalFormat("0.##");
 	return "Piedevas: "+getPiedevas()+
 			"\nMērces: "+getMerces()+
 			"\nIzmērs: "+getLielums()+" cm"+
-			"\nIegādāta uz vietas "+((getVieta())? "ir":"nav")+
-			"\nCena: "+getCena();
+			"\nIegādāta uz vietas: "+((getVieta())? "ir":"nav")+
+			"\nCena: "+df.format(getCena());
 }
 }
