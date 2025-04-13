@@ -11,10 +11,10 @@ Projekta ietvaros izveidots neliels picērijas darbiņš, kurā var:
 #Veicamo darbu saraksts
 - [x] uzsākt lokālā projekta versionēšanu ar Git un savienot ar GitHub
 - [x] izveidot, noformēt GUI logu, kurā var izveidot kontu, pieslēgties jau esošajam un beigt projekta darbu
-![Sākuma logs](https://lvtlv-my.sharepoint.com/:i:/g/personal/marks_brizaks_sk_lvt_lv/Edf5YYOam41Cg8dkDvvR58kB25-hmpf7WJnBUvE5vAmvYg?e=c25sjJ)
+![Sākuma_logs](https://github.com/user-attachments/assets/92b1aee2-f3cd-4d75-af2c-161d546c4a56)
 - [x] izveidot metodi, kurā lietotājs var izveidot savu kontu, ievadot savu vārdu, uzvārdu, adresi, telefona numuru
 - [x] izveido atsvišķu metodi, ar kuras palīdzību lietotājs ievada un apstiprina tikko ievadīto paroli
-![Paroles izveide](https://lvtlv-my.sharepoint.com/:i:/g/personal/marks_brizaks_sk_lvt_lv/EU9640pvUWZIjJbqLqKio8gBpP-Myk29_mQEOwyB-xkwPw?e=aajiQT) 
+![Paroles_izveide](https://github.com/user-attachments/assets/2c2782f0-8e88-4602-8ede-98dd1cc7db18) 
 - [x] ieglabāt tikko izveidotu lietotāja profilu masīvā
 - [x] izveido metodi, ar kuras palīdzību lietotājs var pieslēgties kontam, ja ievada savu paroli 
 - [x] izveidot metodes, ar kuras palīdzību var saglabāt tikko izveidotos lietotājus txt failā un, uzsākot projektu, izveidotos lietotājus automātiski ieglabāt masīvā
@@ -24,7 +24,7 @@ Projekta ietvaros izveidots neliels picērijas darbiņš, kurā var:
       3. Apskatīties pasūtījumus (gan tikko veiktos, gan jau apmaksātos)
       4. Rediģēt/dzēst profilu
       5. Izlogoties
-      ![Darbību izvēles logs](https://lvtlv-my.sharepoint.com/:i:/g/personal/marks_brizaks_sk_lvt_lv/EZcmsKIiPl9LrjAYw2eNTVcBfZ8xqvZSuATuzWo3Yz0gdA?e=TjNT4b)    
+      ![Darbību izvēles logs](https://github.com/user-attachments/assets/90b42947-4c00-4665-ace0-1b6c477b1d00)  
 - [x] izveidot GUI logu, kurā lietotājs var pasūtīt vienu no gatavajām picām vai arī izveidot savu picu, uzpiežot uz picu:
     - [x] Metodē izvēlās picas lielumu (padod uz citu metodi, kurā var izvēlēties)
     - [x] Metodē izvēlās picas piegādes vietu - uz vietas vai piegāde uz adresi
@@ -33,7 +33,7 @@ Projekta ietvaros izveidots neliels picērijas darbiņš, kurā var:
     - [x] Metode ļauj klientam apstiprināt vai atcelt pasūtījumu, ja tas pārdomāja 
     - [x] Ieglabāt šo picu masīvā un atgriezties uz picas izvēles GUI logu
     - [x] Atgriezties uz darbību izveles logu
-      ![Picu izveles logs](https://lvtlv-my.sharepoint.com/:i:/g/personal/marks_brizaks_sk_lvt_lv/EQNk2mIK6vBGjv9B2tKedoMBuKiH_WrJ8twJDuayhH0kig?e=UE1dnu)
+      ![Picu izveles logs](https://github.com/user-attachments/assets/45349b29-7961-4218-a3ee-fcd24dcdcc40)
 - [x] Izveidot metodi, kurā var saņemt masīvā ieglabātās jeb pasūtītās picas. Izveidot izvēli, vai apmaksāt picu, pretējā gadījumā ekrānā tiek izvadīts GIF ar policijas animāciju, jo lietotājs nozaga picu. Metode izdzēš picu no saraksta un ieglabā to txt dokumentā ar jau pārdotajām picām, kuras var apskatīties
 - [x] Apskatīties visus pasūtījumus, izveidojot 2 metodes:
       1. Metode, kura parādīs ekrānā masīvā/tikko izveidotās picas
@@ -41,6 +41,3 @@ Projekta ietvaros izveidots neliels picērijas darbiņš, kurā var:
 - [x] Rediģēt/dzēst profilu, kurā var izmainīt visus savus datus, iepriekš apstiprinot, ka saglabā, ja lietotājs nejauši uzspieda, kā arī var izdzēst savu profilu. Profila dzēšanas gadījumā tas atgriežās uz sākumlogu, kura var izvēlēties citu profilu vai izveidot jaunu
 - [x] Izlogoties - poga, kas atgriež uz sākumlogu
 - [x] Notestēt, vai programma strādā, kā ir plānots, un noverst pēc iespējas vairak kļūdu kodā.
-
-
- 
