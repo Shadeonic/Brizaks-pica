@@ -8,7 +8,7 @@ Projekta ietvaros izveidots neliels picērijas darbiņš, kurā var:
 6. rediģēt savu profilu, mainot savu vārdu, uzvārdu, adresi, telefona numuru un konta paroli, vai arī dzēst profilu;
 7. Iespēja izlogoties un arī apturēt programmas darbu.
 
-#Veicamo darbu saraksts
+# Veicamo darbu saraksts
 - [x] uzsākt lokālā projekta versionēšanu ar Git un savienot ar GitHub
 - [x] izveidot, noformēt GUI logu, kurā var izveidot kontu, pieslēgties jau esošajam un beigt projekta darbu
 ![Sākuma_logs](https://github.com/user-attachments/assets/92b1aee2-f3cd-4d75-af2c-161d546c4a56)
