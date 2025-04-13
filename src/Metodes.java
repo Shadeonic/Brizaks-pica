@@ -24,72 +24,64 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 public class Metodes {
-static void pasutitPicu(int klients, ArrayList<Object> picas) {//veido picu
+static void pasutitPicu(int izvelesIndekss, int klients, ArrayList<Object> picas) {//veido picu
 	DecimalFormat df = new DecimalFormat("0.##");
-	String[] picasIzv = {"Sēņu pica", "Margarita", "Čempionu", "Pepperoni", "Sava pica", "Veikt pasūtījumu"};
 	String[] atbilde = {"Jā", "Nē"};
-	int izvelesIndekss=-1;
 	double cena=0;
 	int lielums = 0;
 	String piedevas="", merces="";
-	boolean vieta=false;
-	do {
-	String izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, picasIzv, picasIzv[0]);
-	izvelesIndekss = Arrays.asList(picasIzv).indexOf(izvele);
+	boolean vieta=false, pasuta = false;
 	switch(izvelesIndekss) {
 	case 0:
+		//------sēņu pica ------
 		lielums = izvLielumu();
 		vieta = izvVietu();
 		cena = 0.25*lielums;
-		if(!vieta)
-			cena*=1.5;
+		cena = Pica.final_cena(cena, vieta);
 		piedevas = "Sēnes";
-		merces = "Tomātu un ķiploku mērces";
-		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+df.format(cena)+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
-			picas.add(new Pica(lielums, piedevas, merces, cena, vieta));
-		}else
-			JOptionPane.showMessageDialog(null, "Pasūtījums atcelts", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
+		merces = "Tomātu un ķiploku mērces";	
 		break;
 	case 1:
+		// ------ Margarita -----
 		lielums = izvLielumu();
 		vieta = izvVietu();
-		cena = 0.21*lielums;
-		if(!vieta)
-			cena*=1.5;
+		cena = Pica.final_cena(0.2*lielums, vieta);
 		piedevas = "Mocarella";
 		merces = "Tomātu un ķiploku mērces";
-		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+df.format(cena)+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
-			picas.add(new Pica(lielums, piedevas, merces, cena, vieta));
-		}else
-			JOptionPane.showMessageDialog(null, "Pasūtījums atcelts", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		break;
 	case 2:
+		//-------4 sieri ------
 		lielums = izvLielumu();
 		vieta = izvVietu();
-		cena = 0.3*lielums;
-		if(!vieta)
-			cena*=1.5;
+		cena = Pica.final_cena(0.3*lielums, vieta);
 		piedevas = "Vārīts cūkgaļas šķiņķis, šampinjoni";
-		merces = "Taco, tomātu un ķiploku mērces";
-		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+df.format(cena)+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
-			picas.add(new Pica(lielums, piedevas, merces, cena, vieta));
-		}else
-			JOptionPane.showMessageDialog(null, "Pasūtījums atcelts", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
-		break;
+		merces = "Taco, tomātu un ķiploku mērces";	
 	case 3:
+		//----Čempionu pica --------
 		lielums = izvLielumu();
 		vieta = izvVietu();
-		cena = 0.3*lielums;
-		if(!vieta)
-			cena*=1.5;
+		cena = Pica.final_cena(0.3*lielums, vieta);
 		piedevas = "Salami \"Pepperoni\", mocarella";
-		merces = "Taco, tomātu un ķiploku mērces";
-		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+df.format(cena)+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
-			picas.add(new Pica(lielums, piedevas, merces, cena, vieta));
-		}else
-			JOptionPane.showMessageDialog(null, "Pasūtījums atcelts", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
+		merces = "Taco, tomātu un ķiploku mērces";	
 		break;
 	case 4:
+		//------Peperoni------
+		lielums = izvLielumu();
+		vieta = izvVietu();
+		cena = Pica.final_cena(0.38*lielums, vieta);
+		piedevas = "Vārīts cūkgaļas šķiņķis, salami \"Pepperoni\"";
+		merces = "BBQ mērce";	
+		break;
+	case 5:
+		//----Studentu pica-------
+		lielums = izvLielumu();
+		vieta = izvVietu();
+		cena = Pica.final_cena(0.43*lielums, vieta);
+		piedevas = "Vārīts cūkgaļas šķiņķis, cīsiņi, mocarella";
+		merces = "Tomātu mērce, eļļas un ķiploku mērce";	
+		break;
+	case 6:
+		//----Sava pica-----
 		String[] piedevasIzv = {"Karsti kūpināts bekons", "Kūpināta vistas fileja", "Malta liellopa gaļa", "Ananāsi", "Vistas gaļa"};
 		String[] mercesIzv = {"Ķiploku mērce", "Tomātu mērce", "Zaļumu un eļļas mērce"};
 		
@@ -97,23 +89,23 @@ static void pasutitPicu(int klients, ArrayList<Object> picas) {//veido picu
 		merces = (String) JOptionPane.showInputDialog(null, "Izvēlies picas mērces", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, mercesIzv, mercesIzv[0]);
 		lielums = izvLielumu();
 		vieta = izvVietu();
-		cena = 0.4*lielums;
-		if(!vieta)
-			cena*=1.5;
+		cena = Pica.final_cena(0.4*lielums, vieta);
 		if(piedevas=="Ananāsi" || piedevas== "Vistas gaļa")
 			cena-=1.47;
 		else if(piedevas=="Karsti kūpināts bekons")
 			cena+=1.32;
-		if(JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+df.format(cena)+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
-			picas.add(new Pica(lielums, piedevas, merces, cena, vieta));
-		}else
-			JOptionPane.showMessageDialog(null, "Pasūtījums atcelts", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		break;
-	case 5:
+	case 7:
+		//-----picas pasūtīšana-------
 		JOptionPane.showMessageDialog(null, "Pica veiksmīgi iegādāta!");
+		pasuta=true;
 		break;
 	}
-	}while(izvelesIndekss!=5);
+	//Apmaksa
+	if(lielums!=0 && JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+df.format(cena)+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
+		picas.add(new Pica(lielums, piedevas, merces, cena, vieta));
+	}else if(!pasuta)
+		JOptionPane.showMessageDialog(null, "Pasūtījums atcelts", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 	saglabatFailaPicas("gatvasPicas.txt", picas, false);
 }
 
@@ -185,7 +177,7 @@ static void apskatitIzdzestasPicas() {
 	StringBuilder nolasitais = new StringBuilder();
 	String teksts;
 	while((teksts = br.readLine()) !=null) {
-		teksts = teksts.replace("true", "ir uz vietas").replace("false", "nav uz vietas");
+		teksts = teksts.replace("true", "uz vietas").replace("false", "uz mājām");
         nolasitais.append(teksts).append("\n");
 	}
 	br.close();

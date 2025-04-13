@@ -33,7 +33,11 @@ public double getCena() {
 public boolean getVieta() {
 	return sanemta_uz_vietas;
 }
-// Setteri
+
+public static double final_cena(double cena, boolean vieta) {
+    return vieta ? cena : cena * 1.5;
+}
+
 // Metodes
 public String izvadit() {
 	DecimalFormat df = new DecimalFormat("0.##");

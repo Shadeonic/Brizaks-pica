@@ -43,8 +43,17 @@ public class izveles_logs extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				izveles_logs.this.setVisible(false);
-				Metodes.pasutitPicu(klients, picas);
-				izveles_logs.this.setVisible(true);
+				picas_izveide_logs picas_izveide_logs = new picas_izveide_logs(klients, picas);
+				picas_izveide_logs.setVisible(true);
+
+                picas_izveide_logs.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+                        if (picas_izveide_logs.beidza()) {
+                            izveles_logs.this.setVisible(true);
+                        }
+                    }
+                });
 			}
 		});
 		button.setBounds(164, 28, 101, 34);
