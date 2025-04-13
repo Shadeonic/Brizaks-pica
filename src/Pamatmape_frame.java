@@ -3,8 +3,6 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,6 +14,7 @@ import javax.swing.border.EmptyBorder;
 public class Pamatmape_frame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	
 	 // Launch the application.
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -64,58 +63,31 @@ public class Pamatmape_frame extends JFrame {
 		pieslegties.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Pamatmape_frame.this.setVisible(false);
-				if(klienti.size()==0) 
-					JOptionPane.showMessageDialog(null, "Tu vēl neizveidoju profilu vai tas netika saglabāts", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
-				else {
-					String[] darbibas2 = {"Pasūtīt picu", "Saņemt picu", "Apskatīties visus pasūtījumus", "Rediģēt/Dzēst profilu", "Izlogoties"};
-					int klients = Metodes.Izvele(klienti,2);
+
+		        if (klienti.isEmpty()) {
+		            JOptionPane.showMessageDialog(null, "Tu vēl neizveidoji profilu vai tas netika saglabāts", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
+		            Pamatmape_frame.this.setVisible(true);
+		        } else {
+		        	int klients = Metodes.Izvele(klienti,2);
 					if(Metodes.ievadParoli(klients, klienti)) {
-						int izvelesIndekss=-1;
-						do {
-					String izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, darbibas2, darbibas2[0]);
-					izvelesIndekss = Arrays.asList(darbibas2).indexOf(izvele);
-					if (izvele==null)
-						izvelesIndekss=-1;
-					switch(izvelesIndekss) {
-					case 0:
-						Metodes.pasutitPicu(klients, picas);
-					    break;
-					case 1:
-						if(picas.size()==0) {
-							JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
-							break;
-						}
-							Metodes.sanemtPicu(klients, klienti, picas);
-						break;
-					case 2:
-						String[] izv = {"Apskatīties tikko izveidotās picas", "Apskatīties jau pārdotās picas"};
-						izvele = (String) JOptionPane.showInputDialog(null, "Izvēlies darbību", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, izv, izv[0]);
-						int id = Arrays.asList(izv).indexOf(izvele);
-						if(id==0) {
-							if(picas.size()==0) {
-								JOptionPane.showMessageDialog(null, "Tu vēl nepasūtīji nevienu picu!", "Sistēmas paziņojums. Kļūda", JOptionPane.INFORMATION_MESSAGE);
-							break;
-							}
-							Metodes.raditSarakstu(picas);		
-						}else
-							Metodes.apskatitIzdzestasPicas();
-					break;
-					case 3:
-						try {
-						klienti = ((Persona)klienti.get(klients)).rediget(klienti, klients);
-						izvelesIndekss = 4;
-						}catch(IndexOutOfBoundsException ex) {
-						        izvelesIndekss = 4;
-						}
-						break;
-					case 4:																	
-						JOptionPane.showMessageDialog(null, "Veiksmīgi izrakstījies!", "Sistēmas paziņojums", JOptionPane.INFORMATION_MESSAGE);
-						break;
-					}	
-					}while(izvelesIndekss!=4);
-					}
-				}
-				Pamatmape_frame.this.setVisible(true);
+		            // Initialize and show the second GUI
+		            izveles_logs izveles_logs = new izveles_logs(klients, klienti, picas);
+		            izveles_logs.setVisible(true);
+
+		            // Handle logout based on profile deletion
+		            izveles_logs.addWindowListener(new java.awt.event.WindowAdapter() {
+		                @Override
+		                public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+		                    if (izveles_logs.isUserLoggedOut()) {
+		                        JOptionPane.showMessageDialog(null, "Veiksmīgi izrakstījies!", "Sistēmas paziņojums", JOptionPane.INFORMATION_MESSAGE);
+		                        Pamatmape_frame.this.setVisible(true);
+		                    } else {
+//		                        Pamatmape_frame.this.setVisible(true);
+		                    }
+		                }
+		            });
+		        }
+		        }
 			}
 		});
 		pieslegties.setBounds(156, 101, 123, 23);

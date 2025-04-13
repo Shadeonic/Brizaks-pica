@@ -1,0 +1,3 @@
+Mocarella: Tomātu un ķiploku mērces: 20: true: 4.2
+Sēnes: Tomātu un ķiploku mērces: 20: true: 5.0
+Mocarella: Tomātu un ķiploku mērces: 30: false: 9.45

@@ -1,0 +1,3 @@
+Vārīts cūkgaļas šķiņķis, šampinjoni: Taco, tomātu un ķiploku mērces: 20: false: 9.0
+Karsti kūpināts bekons: Ķiploku mērce: 20: true: 9.32
+Sēnes: Tomātu un ķiploku mērces: 20: true: 5.0
