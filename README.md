@@ -18,7 +18,7 @@ Projekta ietvaros izveidots neliels picērijas darbiņš, kurā var:
 - [x] ieglabāt tikko izveidotu lietotāja profilu masīvā
 - [x] izveido metodi, ar kuras palīdzību lietotājs var pieslēgties kontam, ja ievada savu paroli 
 - [x] izveidot metodes, ar kuras palīdzību var saglabāt tikko izveidotos lietotājus txt failā un, uzsākot projektu, izveidotos lietotājus automātiski ieglabāt masīvā
-- [x] Izveidot GUI logu, kurā var izvēlēties vienu no darbībām:
+- [x] Izveidot GUI logu, kurā var izvēlēties vienu no darbībām:<br>
       1. Pasūtīt picu<br>
       2. Saņemt picu<br>
       3. Apskatīties pasūtījumus (gan tikko veiktos, gan jau apmaksātos)<br>
