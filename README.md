@@ -6,10 +6,10 @@ Projekta ietvaros izveidots neliels picērijas darbiņš, kurā var:
 4. saņemt picas pasūtījumu :pizza:
 5. apskatīties picas, kas tikko izveidotas vai picas, kas jau nopirktas :eyes:
 6. rediģēt savu profilu, mainot savu vārdu, uzvārdu, adresi, telefona numuru un konta paroli, vai arī dzēst profilu ✏️❌
-7. Iespēja izlogoties un arī apturēt programmas darbu 🚪
+7. Iespēja izlogoties un arī apturēt programmas darbu 🚪❌
 
 # 📋 Veicamo darbu saraksts 📋
-- [x] uzsākt lokālā projekta versionēšanu ar Git un savienot ar GitHub
+- [x] uzsākt lokālā projekta versionēšanu ar Git un savienot ar GitHub 🛠️
 - [x] izveidot, noformēt GUI logu, kurā var izveidot kontu, pieslēgties jau esošajam un beigt projekta darbu
 ![Sākuma_logs](https://github.com/user-attachments/assets/92b1aee2-f3cd-4d75-af2c-161d546c4a56)
 - [x] izveidot metodi, kurā lietotājs var izveidot savu kontu, ievadot savu vārdu, uzvārdu, adresi, telefona numuru 📋
@@ -42,4 +42,4 @@ Projekta ietvaros izveidots neliels picērijas darbiņš, kurā var:
       2. Metode, kura paradīs jau apmaksātās picas 📋
 - [x] Rediģēt/dzēst profilu, kurā var izmainīt visus savus datus, iepriekš apstiprinot, ka saglabā, ja lietotājs nejauši uzspieda, kā arī var izdzēst savu profilu. Profila dzēšanas gadījumā tas atgriežās uz sākumlogu, kura var izvēlēties citu profilu vai izveidot jaunu✏️❌
 - [x] Izlogoties - poga, kas atgriež uz sākumlogu 🚪
-- [x] Notestēt, vai programma strādā, kā ir plānots, un noverst pēc iespējas vairak kļūdu kodā.🛠️
+- [x] Notestēt, vai programma strādā, kā ir plānots, un novērst pēc iespējas vairak kļūdu kodā.🛠️
