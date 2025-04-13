@@ -23,7 +23,7 @@ Projekta ietvaros izveidots neliels picērijas darbiņš, kurā var:
       2. Saņemt picu
       3. Apskatīties pasūtījumus (gan tikko veiktos, gan jau apmaksātos)
       4. Rediģēt/dzēst profilu
-      5. Izlogoties
+      5. Izlogoties <br>
 ![Darbību izvēles logs](https://github.com/user-attachments/assets/90b42947-4c00-4665-ace0-1b6c477b1d00)  
 - [x] izveidot GUI logu, kurā lietotājs var pasūtīt vienu no gatavajām picām vai arī izveidot savu picu, uzpiežot uz picu:
     - [x] Metodē izvēlās picas lielumu (padod uz citu metodi, kurā var izvēlēties)
@@ -32,7 +32,7 @@ Projekta ietvaros izveidots neliels picērijas darbiņš, kurā var:
     - [x] Aprēķināt picas cenu, atkarībā no lieluma un piegādes vietas, kā arī, ja veido savu picu, tad atkarībā no piedevām un mērcēm
     - [x] Metode ļauj klientam apstiprināt vai atcelt pasūtījumu, ja tas pārdomāja 
     - [x] Ieglabāt šo picu masīvā un atgriezties uz picas izvēles GUI logu
-    - [x] Atgriezties uz darbību izveles logu
+    - [x] Atgriezties uz darbību izveles logu<br>
 ![Picu izveles logs](https://github.com/user-attachments/assets/45349b29-7961-4218-a3ee-fcd24dcdcc40)
 - [x] Izveidot metodi, kurā var saņemt masīvā ieglabātās jeb pasūtītās picas. Izveidot izvēli, vai apmaksāt picu, pretējā gadījumā ekrānā tiek izvadīts GIF ar policijas animāciju, jo lietotājs nozaga picu. Metode izdzēš picu no saraksta un ieglabā to txt dokumentā ar jau pārdotajām picām, kuras var apskatīties
 - [x] Apskatīties visus pasūtījumus, izveidojot 2 metodes:
