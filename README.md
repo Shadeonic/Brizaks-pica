@@ -19,10 +19,10 @@ Projekta ietvaros izveidots neliels picērijas darbiņš, kurā var:
 - [x] izveido metodi, ar kuras palīdzību lietotājs var pieslēgties kontam, ja ievada savu paroli 
 - [x] izveidot metodes, ar kuras palīdzību var saglabāt tikko izveidotos lietotājus txt failā un, uzsākot projektu, izveidotos lietotājus automātiski ieglabāt masīvā
 - [x] Izveidot GUI logu, kurā var izvēlēties vienu no darbībām:
-      1. Pasūtīt picu;
-      2. Saņemt picu
-      3. Apskatīties pasūtījumus (gan tikko veiktos, gan jau apmaksātos)
-      4. Rediģēt/dzēst profilu
+      1. Pasūtīt picu<br>
+      2. Saņemt picu<br>
+      3. Apskatīties pasūtījumus (gan tikko veiktos, gan jau apmaksātos)<br>
+      4. Rediģēt/dzēst profilu<br>
       5. Izlogoties <br>
 ![Darbību izvēles logs](https://github.com/user-attachments/assets/90b42947-4c00-4665-ace0-1b6c477b1d00)  
 - [x] izveidot GUI logu, kurā lietotājs var pasūtīt vienu no gatavajām picām vai arī izveidot savu picu, uzpiežot uz picu:
