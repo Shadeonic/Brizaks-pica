@@ -14,8 +14,6 @@ import javax.swing.border.EmptyBorder;
 public class Pamatmape_frame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	
-	 // Launch the application.
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -28,7 +26,6 @@ public class Pamatmape_frame extends JFrame {
 			}
 		});
 	}
-	 // Create the frame.
 	private ArrayList<Object> klienti;
 	private ArrayList <Object> picas;
 	public Pamatmape_frame() {
@@ -70,19 +67,15 @@ public class Pamatmape_frame extends JFrame {
 		        } else {
 		        	int klients = Metodes.Izvele(klienti,2);
 					if(Metodes.ievadParoli(klients, klienti)) {
-		            // Initialize and show the second GUI
 		            izveles_logs izveles_logs = new izveles_logs(klients, klienti, picas);
 		            izveles_logs.setVisible(true);
 
-		            // Handle logout based on profile deletion
 		            izveles_logs.addWindowListener(new java.awt.event.WindowAdapter() {
 		                @Override
 		                public void windowClosed(java.awt.event.WindowEvent windowEvent) {
 		                    if (izveles_logs.isUserLoggedOut()) {
 		                        JOptionPane.showMessageDialog(null, "Veiksmīgi izrakstījies!", "Sistēmas paziņojums", JOptionPane.INFORMATION_MESSAGE);
 		                        Pamatmape_frame.this.setVisible(true);
-		                    } else {
-//		                        Pamatmape_frame.this.setVisible(true);
 		                    }
 		                }
 		            });
