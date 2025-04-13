@@ -37,8 +37,8 @@ Projekta ietvaros izveidots neliels picērijas darbiņš, kurā var:
 - [x] Izveidot metodi, kurā var saņemt masīvā ieglabātās jeb pasūtītās picas 
 * Izveidot izvēli, vai apmaksāt picu, pretējā gadījumā ekrānā tiek izvadīts GIF ar policijas animāciju, jo lietotājs nozaga picu 🚔🚨
 * Metode izdzēš picu no saraksta un ieglabā to txt dokumentā ar jau pārdotajām picām, kuras var apskatīties 🍕📜
-- [x] Apskatīties visus pasūtījumus, izveidojot 2 metodes:
-      1. Metode, kura parādīs ekrānā masīvā/tikko izveidotās picas 📋
+- [x] Apskatīties visus pasūtījumus, izveidojot 2 metodes:<br>
+      1. Metode, kura parādīs ekrānā masīvā/tikko izveidotās picas 📋<br>
       2. Metode, kura paradīs jau apmaksātās picas 📋
 - [x] Rediģēt/dzēst profilu, kurā var izmainīt visus savus datus, iepriekš apstiprinot, ka saglabā, ja lietotājs nejauši uzspieda, kā arī var izdzēst savu profilu. Profila dzēšanas gadījumā tas atgriežās uz sākumlogu, kura var izvēlēties citu profilu vai izveidot jaunu✏️❌
 - [x] Izlogoties - poga, kas atgriež uz sākumlogu 🚪
