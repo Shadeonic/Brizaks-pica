@@ -3,7 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 public class izveles_logs extends JFrame {
 	private boolean userLoggedOut = false;
 	private static final long serialVersionUID = 1L;
@@ -22,7 +20,6 @@ public class izveles_logs extends JFrame {
     private ArrayList<Object> picas;
 	@SuppressWarnings("unused")
     private int klients;
-	
 	public izveles_logs(int klients, ArrayList<Object> klienti, ArrayList<Object> picas) {
 		this.klients = klients;
         this.klienti = klienti;
@@ -113,7 +110,6 @@ public class izveles_logs extends JFrame {
 		        }
 			}
 		});
-		
 		button4.setBounds(132, 163, 162, 34);
 		contentPane.add(button4);
 		
@@ -135,4 +131,3 @@ public class izveles_logs extends JFrame {
         return userLoggedOut;
     }
 }
-

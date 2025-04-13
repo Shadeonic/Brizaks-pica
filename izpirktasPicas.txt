@@ -1,8 +1,3 @@
 Piedevas: Mērces: Izmers: Piegāde uz vietas/mājām: Cena
-
 Sēnes: Tomātu un ķiploku mērces: 20: true: 5.0
-Mocarella: Tomātu un ķiploku mērces: 20: true: 4.0
-Salami "Pepperoni", mocarella: Taco, tomātu un ķiploku mērces: 20: true: 6.0
-Salami "Pepperoni", mocarella: Taco, tomātu un ķiploku mērces: 42: true: 12.6
-Karsti kūpināts bekons: Ķiploku mērce: 20: true: 9.32
-Mocarella: Tomātu un ķiploku mērces: 20: true: 4.0
+Sēnes: Tomātu un ķiploku mērces: 42: false: 15.75

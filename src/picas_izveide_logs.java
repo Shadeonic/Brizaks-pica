@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
-
 public class picas_izveide_logs extends JFrame {
-
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     @SuppressWarnings("unused")
@@ -14,7 +12,9 @@ public class picas_izveide_logs extends JFrame {
     @SuppressWarnings("unused")
     private ArrayList<Object> picas;
     private boolean beidza = false;
-    
+    public boolean beidza() {
+        return beidza;
+    }
     public picas_izveide_logs(int klients, ArrayList<Object> picas) {
         this.klients = klients;
         this.picas = picas;
@@ -39,7 +39,7 @@ public class picas_izveide_logs extends JFrame {
                 picas_izveide_logs.this.setVisible(true);
             }
         });
-        button.setBounds(42, 54, 95, 31);
+        button.setBounds(31, 54, 95, 31);
         contentPane.add(button);
 
         JButton button2 = new JButton("Margarita");
@@ -50,7 +50,7 @@ public class picas_izveide_logs extends JFrame {
                 picas_izveide_logs.this.setVisible(true);
             }
         });
-        button2.setBounds(176, 54, 95, 31);
+        button2.setBounds(166, 54, 95, 31);
         contentPane.add(button2);
 
         JButton button3 = new JButton("Četri sieri");
@@ -72,7 +72,7 @@ public class picas_izveide_logs extends JFrame {
                 picas_izveide_logs.this.setVisible(true);
             }
         });
-        button4.setBounds(42, 123, 95, 31);
+        button4.setBounds(31, 123, 95, 31);
         contentPane.add(button4);
 
         JButton button5 = new JButton("Pepperoni");
@@ -83,7 +83,7 @@ public class picas_izveide_logs extends JFrame {
             	picas_izveide_logs.this.setVisible(true);
             }
         });
-        button5.setBounds(176, 123, 95, 31);
+        button5.setBounds(166, 123, 95, 31);
         contentPane.add(button5);
 
         JButton button6 = new JButton("Studentu");
@@ -105,27 +105,22 @@ public class picas_izveide_logs extends JFrame {
             	picas_izveide_logs.this.setVisible(true);
             }
         });
-        button7.setBounds(58, 182, 95, 31);
+        button7.setBounds(90, 182, 95, 31);
         contentPane.add(button7);
 
-        JButton button8 = new JButton("Atpakaļ/Pievienot grozam");
+        JButton button8 = new JButton("Atgriezties");
         button8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	picas_izveide_logs.this.setVisible(false);
                 beidza = true; 
-                Metodes.pasutitPicu(7, klients, picas);
                 dispose(); 
             }
         });
-        button8.setBounds(200, 182, 182, 31);
+        button8.setBounds(240, 182, 109, 31);
         contentPane.add(button8);
 
         JLabel fonsLabel = new JLabel(fonsatt);
         fonsLabel.setBounds(-16, -39, fonsatt.getIconWidth(), fonsatt.getIconHeight());
         contentPane.add(fonsLabel);
-    }
-
-    public boolean beidza() {
-        return beidza;
     }
 }

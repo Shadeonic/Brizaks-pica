@@ -30,7 +30,7 @@ static void pasutitPicu(int izvelesIndekss, int klients, ArrayList<Object> picas
 	double cena=0;
 	int lielums = 0;
 	String piedevas="", merces="";
-	boolean vieta=false, pasuta = false;
+	boolean vieta=false;
 	switch(izvelesIndekss) {
 	case 0:
 		//------sēņu pica ------
@@ -95,16 +95,12 @@ static void pasutitPicu(int izvelesIndekss, int klients, ArrayList<Object> picas
 		else if(piedevas=="Karsti kūpināts bekons")
 			cena+=1.32;
 		break;
-	case 7:
-		//-----picas pasūtīšana-------
-		JOptionPane.showMessageDialog(null, "Pica veiksmīgi iegādāta!");
-		pasuta=true;
-		break;
 	}
-	//Apmaksa
+	//Apmaksa///-----picas pasūtīšana-------
 	if(lielums!=0 && JOptionPane.showInputDialog(null, "Par picu ar piedevām \""+piedevas+"\", picas mērci \""+merces+"\",\nizmēru "+lielums+"cm, kas "+((vieta)? "ir":"nav")+" iegādāta uz vietas, būs jāsamaksā "+df.format(cena)+"EUR. \nApstiprināt?", "Sistēmas paziņojums. Apstiprinājums", JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0])=="Jā") {
 		picas.add(new Pica(lielums, piedevas, merces, cena, vieta));
-	}else if(!pasuta)
+		JOptionPane.showMessageDialog(null, "Pica veiksmīgi iegādāta!");
+	}else
 		JOptionPane.showMessageDialog(null, "Pasūtījums atcelts", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 	saglabatFailaPicas("gatvasPicas.txt", picas, false);
 }

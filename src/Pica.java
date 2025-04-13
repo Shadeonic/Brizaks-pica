@@ -1,5 +1,4 @@
 import java.text.DecimalFormat;
-
 public class Pica {
 //	atribūti
 private double cena;

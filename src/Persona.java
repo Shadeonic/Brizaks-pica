@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import javax.swing.JOptionPane;
-
 public class Persona {
 //	atribūti
 private String adrese, vards, uzvards, parole;
