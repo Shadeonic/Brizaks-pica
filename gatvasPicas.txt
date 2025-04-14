@@ -1,1 +1,1 @@
-Sēnes: Tomātu un ķiploku mērces: 42: false: 15.75
+Sēnes: Tomātu un ķiploku mērces: 20: true: 5.0
