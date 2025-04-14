@@ -175,7 +175,7 @@ static void raditSarakstu(ArrayList<Object> picas) {//rāda visu sarakstu ar izv
         str += ((Pica) picas.get(i)).izvadit() +
                 "\n________________________\n";
     }
-    JTextArea ta = new JTextArea(str, 10, 35);
+    JTextArea ta = new JTextArea(str, 20, 50);
     ta.setEditable(false);
     JScrollPane sp = new JScrollPane(ta);
     sp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -196,7 +196,14 @@ static void apskatitIzdzestasPicas() {
         nolasitais.append(teksts).append("\n");
 	}
 	br.close();
-	JOptionPane.showMessageDialog(null, nolasitais, "Faila saturs", JOptionPane.INFORMATION_MESSAGE);
+	JTextArea textArea = new JTextArea(nolasitais.toString(), 20, 50);
+    textArea.setLineWrap(true);
+    textArea.setWrapStyleWord(true);
+    textArea.setEditable(false);
+    
+    JScrollPane scrollPane = new JScrollPane(textArea);
+
+    JOptionPane.showMessageDialog(null, scrollPane, "Faila saturs", JOptionPane.INFORMATION_MESSAGE);
 	}catch(IOException e){
 		JOptionPane.showMessageDialog(null, "Radās kļūda, nolasot failu!", "Kļūda", JOptionPane.WARNING_MESSAGE);
 	}
