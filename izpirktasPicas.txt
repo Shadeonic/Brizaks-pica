@@ -1,2 +1,5 @@
 Piedevas: Mērces: Izmers: Piegāde uz vietas/mājām: Cena
 Sēnes: Tomātu un ķiploku mērces: 20: true: 5.0
+Sēnes: Tomātu un ķiploku mērces: 20: true: 5.0
+Vārīts cūkgaļas šķiņķis, salami "Pepperoni": BBQ mērce: 20: false: 11.399999999999999
+Vārīts cūkgaļas šķiņķis, salami "Pepperoni": BBQ mērce: 20: false: 11.399999999999999

@@ -89,7 +89,7 @@ public class Pamatmape_frame extends JFrame {
 		JButton aizvProg = new JButton("Beigt darbu");
 		aizvProg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pamatmape_frame.this.setVisible(false);
+				Pamatmape_frame.this.setVisible(true);
 				JOptionPane.showMessageDialog(null, "Programma apturēta", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 				JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(aizvProg); 
 		        if (currentFrame != null) {
