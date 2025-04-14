@@ -1,3 +1,6 @@
 Piedevas: Mērces: Izmers: Piegāde uz vietas/mājām: Cena
 Sēnes: Tomātu un ķiploku mērces: 20: true: 5.0
 Sēnes: Tomātu un ķiploku mērces: 42: false: 15.75
+Vārīts cūkgaļas šķiņķis, cīsiņi, mocarella: Tomātu mērce, eļļas un ķiploku mērce: 20: true: 8.6
+Sēnes: Tomātu un ķiploku mērces: 20: false: 7.5
+Sēnes: Tomātu un ķiploku mērces: 20: false: 7.5

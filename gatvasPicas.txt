@@ -1,1 +1,6 @@
-Vārīts cūkgaļas šķiņķis, cīsiņi, mocarella: Tomātu mērce, eļļas un ķiploku mērce: 20: true: 8.6
+Vārīts cūkgaļas šķiņķis, salami "Pepperoni": BBQ mērce: 20: true: 7.6
+Sēnes: Tomātu un ķiploku mērces: 42: false: 15.75
+Karsti kūpināts bekons: Ķiploku mērce: 20: true: 9.32
+Karsti kūpināts bekons: Ķiploku mērce: 20: false: 13.32
+Vārīts cūkgaļas šķiņķis, cīsiņi, mocarella: Tomātu mērce, eļļas un ķiploku mērce: 20: false: 12.899999999999999
+Vārīts cūkgaļas šķiņķis, cīsiņi, mocarella: Tomātu mērce, eļļas un ķiploku mērce: 20: false: 12.899999999999999

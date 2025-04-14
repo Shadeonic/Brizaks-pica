@@ -34,16 +34,19 @@ static void pasutitPicu(int izvelesIndekss, int klients, ArrayList<Object> picas
 	switch(izvelesIndekss) {
 	case 0:
 		//------sēņu pica ------
+		JOptionPane.showMessageDialog(null, "Cena par 20cm picu ir 5 eur, par 30cm ir 7.5 eur, bet par 42 cm 10.5 eur", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		lielums = izvLielumu();
+		JOptionPane.showMessageDialog(null, "Ja piegāde tiek veikta uz mājām, pica ir 50% dargāka", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		vieta = izvVietu();
-		cena = 0.25*lielums;
-		cena = Pica.final_cena(cena, vieta);
+		cena = Pica.final_cena(0.25*lielums, vieta);
 		piedevas = "Sēnes";
 		merces = "Tomātu un ķiploku mērces";	
 		break;
 	case 1:
 		// ------ Margarita -----
+		JOptionPane.showMessageDialog(null, "Cena par 20cm picu ir 4 eur, par 30cm ir 6 eur, bet par 42 cm 8.4 eur", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		lielums = izvLielumu();
+		JOptionPane.showMessageDialog(null, "Ja piegāde tiek veikta uz mājām, pica ir 50% dargāka", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		vieta = izvVietu();
 		cena = Pica.final_cena(0.2*lielums, vieta);
 		piedevas = "Mocarella";
@@ -51,22 +54,31 @@ static void pasutitPicu(int izvelesIndekss, int klients, ArrayList<Object> picas
 		break;
 	case 2:
 		//-------4 sieri ------
+		JOptionPane.showMessageDialog(null, "Cena par 20cm picu ir 6 eur, par 30cm ir 9 eur, bet par 42 cm 12.6 eur", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		lielums = izvLielumu();
+		JOptionPane.showMessageDialog(null, "Ja piegāde tiek veikta uz mājām, pica ir 50% dargāka", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
+		
 		vieta = izvVietu();
 		cena = Pica.final_cena(0.3*lielums, vieta);
 		piedevas = "Vārīts cūkgaļas šķiņķis, šampinjoni";
 		merces = "Taco, tomātu un ķiploku mērces";	
 	case 3:
 		//----Čempionu pica --------
+		JOptionPane.showMessageDialog(null, "Cena par 20cm picu ir 6.4 eur, par 30cm ir 9.6 eur, bet par 42 cm 13.44 eur", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		lielums = izvLielumu();
+		JOptionPane.showMessageDialog(null, "Ja piegāde tiek veikta uz mājām, pica ir 50% dargāka", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
+		
 		vieta = izvVietu();
-		cena = Pica.final_cena(0.3*lielums, vieta);
+		cena = Pica.final_cena(0.32*lielums, vieta);
 		piedevas = "Salami \"Pepperoni\", mocarella";
 		merces = "Taco, tomātu un ķiploku mērces";	
 		break;
 	case 4:
 		//------Peperoni------
+		JOptionPane.showMessageDialog(null, "Cena par 20cm picu ir 7.6 eur, par 30cm ir 11.4 eur, bet par 42 cm 15.96 eur", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		lielums = izvLielumu();
+		JOptionPane.showMessageDialog(null, "Ja piegāde tiek veikta uz mājām, pica ir 50% dargāka", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
+		
 		vieta = izvVietu();
 		cena = Pica.final_cena(0.38*lielums, vieta);
 		piedevas = "Vārīts cūkgaļas šķiņķis, salami \"Pepperoni\"";
@@ -74,7 +86,10 @@ static void pasutitPicu(int izvelesIndekss, int klients, ArrayList<Object> picas
 		break;
 	case 5:
 		//----Studentu pica-------
+		JOptionPane.showMessageDialog(null, "Cena par 20cm picu ir 8.6 eur, par 30cm ir 12.9 eur, bet par 42 cm 18.06 eur", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		lielums = izvLielumu();
+		JOptionPane.showMessageDialog(null, "Ja piegāde tiek veikta uz mājām, pica ir 50% dargāka", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
+		
 		vieta = izvVietu();
 		cena = Pica.final_cena(0.43*lielums, vieta);
 		piedevas = "Vārīts cūkgaļas šķiņķis, cīsiņi, mocarella";
@@ -84,10 +99,14 @@ static void pasutitPicu(int izvelesIndekss, int klients, ArrayList<Object> picas
 		//----Sava pica-----
 		String[] piedevasIzv = {"Karsti kūpināts bekons", "Kūpināta vistas fileja", "Malta liellopa gaļa", "Ananāsi", "Vistas gaļa"};
 		String[] mercesIzv = {"Ķiploku mērce", "Tomātu mērce", "Zaļumu un eļļas mērce"};
+		JOptionPane.showMessageDialog(null, "Par kūpinātu vistas fileju un malto liellopa gaļu būs jāsamaksā 1.47 eur mazāk!\nPar karsti kūpinātu bekonu būs jāsamaksā 1.32 eur vairāk!", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		
 		piedevas = (String) JOptionPane.showInputDialog(null, "Izvēlies picas piedevas", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, piedevasIzv, piedevasIzv[0]);
 		merces = (String) JOptionPane.showInputDialog(null, "Izvēlies picas mērces", "Sistēmas paziņojums. Izvēle", JOptionPane.QUESTION_MESSAGE, null, mercesIzv, mercesIzv[0]);
+		JOptionPane.showMessageDialog(null, "Cena par 20cm picu ir 8 eur, par 30cm ir 12 eur, bet par 42 cm 16.8 eur", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
 		lielums = izvLielumu();
+		JOptionPane.showMessageDialog(null, "Ja piegāde tiek veikta uz mājām, pica ir 50% dargāka", "Sistēmas paziņojums. Informācija", JOptionPane.INFORMATION_MESSAGE);
+		
 		vieta = izvVietu();
 		cena = Pica.final_cena(0.4*lielums, vieta);
 		if(piedevas=="Ananāsi" || piedevas== "Vistas gaļa")
@@ -390,7 +409,7 @@ static void sanemtPicu(int klients, ArrayList<Object> klienti, ArrayList<Object>
 		} else {//Maksā par piegādi
 			int x = JOptionPane.showConfirmDialog(null, "Par picu būs jāsamaksā "+(((Pica)pica.get(kuraPica)).getCena()+5)+"EUR.\nApmaksāt?","Sistēmas paziņojums. Samaksa", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 			if (x == JOptionPane.OK_OPTION) 
-			JOptionPane.showMessageDialog(null, "Pica veiksmīgi piegādāta uz tavām mājām: "+((Persona)klienti.get(klients)).getAdrese(), "Sistēmas paziņojums. Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Pica veiksmīgi piegādāta uz tavām mājām: "+((Persona)klienti.get(klients)).getAdrese()+"\n Nepieciešamības gadījumā zvanīsim uz tavu telefona numuru: "+((Persona)klienti.get(klients)).getTalrunis(), "Sistēmas paziņojums. Paziņojums", JOptionPane.INFORMATION_MESSAGE);
 			else 
 				policija();
 			
